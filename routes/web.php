@@ -18,7 +18,8 @@ Route::get('/', function () {
 });
 
 //Register User Form
-Route::get('register', [RegisteredUserController::class]);
+Route::get('register', [RegisteredUserController::class, 'create']);
+Route::get('post', [RegisteredUserController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
