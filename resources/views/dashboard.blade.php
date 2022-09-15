@@ -11,7 +11,10 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
                 </div>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi maxime sunt facilis minima consectetur natus blanditiis laborum voluptatibus pariatur earum porro tenetur, harum expedita? Distinctio praesentium at aut totam maiores.</p>
             </div>
         </div>
+       
     </div>
+
 </x-app-layout>
