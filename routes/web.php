@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Register User Form
+Route::get('register', [RegisteredUserController::class, 'create']);
+Route::get('post', [RegisteredUserController::class, 'store']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
