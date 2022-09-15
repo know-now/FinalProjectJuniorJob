@@ -8,8 +8,7 @@
         <input type="checkbox" checked="checked">
         <span class="checkmark"></span>
       </label>
-      <iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials"></iframe>
-     
+           
     <label class="container">Back End
         <input type="checkbox">
         <span class="checkmark"></span>

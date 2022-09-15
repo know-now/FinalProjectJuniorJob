@@ -12,6 +12,18 @@
                     You're logged in!
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi maxime sunt facilis minima consectetur natus blanditiis laborum voluptatibus pariatur earum porro tenetur, harum expedita? Distinctio praesentium at aut totam maiores.</p>
+                <hr>
+                <nav>
+                    <li><a href="/adem">Work permit in ADEM</a></li>
+                    <li><a href="/dashboard">My account</a></li>
+                    <li><a href="/junior_profile">Junior profile</a></li>
+                    <li><a href="/junior">Junior Homepage</a></li>
+                    <li><a href="/skills">Search a Junior</a></li>
+                    <li><a href="/">Company Homepage</a></li>
+                    <li><a href="/soft_skills">Soft Skills</a></li>
+                    <li><a href="/grade">Test Results</a></li>
+                    <li><a href="/junior_details">Info about Junior</a></li>
+                </nav>
             </div>
         </div>
        

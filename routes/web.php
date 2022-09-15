@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +42,7 @@ Route::post('/junior_profile', function () {
     return view('junior_profile');
 })->middleware(['auth'])->name('junior_profile');
 
-Route::get('/search', function () {
-    return view('search');
-})->middleware(['auth'])->name('search');
+Route::get('/skills', [SkillController::class, 'index'])->middleware(['auth'])->name('skills');
 Route::post('/company_profile', function () {
     return view('company_profile');
 })->middleware(['auth'])->name('company_profile');
@@ -54,5 +54,13 @@ Route::get('/soft_skills', function () {
 Route::get('/adem', function () {
     return view('adem');
 })->middleware(['auth'])->name('adem');
+
+Route::get('/junior_details', function () {
+    return view('junior_details');
+})->middleware(['auth'])->name('junior_details');
+
+Route::get('/grade', function () {
+    return view('grade');
+})->middleware(['auth'])->name('grade');
 
 require __DIR__.'/auth.php';
