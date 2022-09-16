@@ -29,17 +29,17 @@
             <div class="navbar-ul">
                 <ul>
                     <li>
-                        <a href="" class="button">Register</a>
+                        <a href="/register" class="button">Register</a>
                     </li>
                     <li>
-                        <a href="" class="button">LogIn</a>
+                        <a href="/login" class="button">Login</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <nav>
+    <div class = "temp-navbar">
         <li><a href="/adem">Work permit in ADEM</a></li>
         <li><a href="/dashboard">My account</a></li>
         <li><a href="/junior_profile">Junior profile</a></li>
@@ -49,7 +49,7 @@
         <li><a href="/soft_skills">Soft Skills</a></li>
         <li><a href="/grade">Test Results</a></li>
         <li><a href="/junior_details">Info about Junior</a></li>
-    </nav>
+    </div>
 
     <div class="content">
         @yield('content')
