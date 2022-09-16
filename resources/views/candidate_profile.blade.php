@@ -39,25 +39,26 @@
         </nav>
     </div>
         <div class="container">
-            <form method="post" class="py-4 w-50 m-auto">
+            <form method="post" class="py-4 m-auto w-75">
                 @csrf
+                <h1 class="row m-auto mb-4">Create your candidate profile</h1>
                 <div class="row gy-4">
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-sm-6">
                         <input type="text" name="first_name" class="form-control" placeholder="First Name">
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-sm-6">
                         <input type="text" name="last_name" class="form-control" placeholder="Last Name">
                     </div>
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-12 align-self-start">
                         <input type="number" name="phone_number" class="form-control" placeholder="Phone Number">
                     </div>
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-6">
                         <input type="text" name="linkedin" class="form-control" placeholder="LinkedIn">
                     </div>
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-6">
                         <input type="text" name="github" class="form-control" placeholder="Github">
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-sm-6">
                         <select name="education"class="form-select">
                             <option value="">Choose your Education</option>
                             <option value="1">High School</option>
@@ -65,7 +66,7 @@
                             <option value="3">Master's</option>
                         </select>
                     </div>
-                    <div class="col-sm-6 col-md-3">
+                    <div class="col-sm-6">
                         <select name="role_id"class="form-select">
                             <option value="">Choose your preferred Role</option>
                             <option value="1">Fullstack</option>
