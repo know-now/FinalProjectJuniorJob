@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+
 
 class RegisteredUserController extends Controller
 {
@@ -45,7 +47,14 @@ class RegisteredUserController extends Controller
         ]);
 
 
-        event(new Registered($user));
+        event(new Registered($user));      
+
+        $user_id = $user->id;
+        session(['user_id' => $user_id]);
+        session()->save();
+        
+        /*$session = session()->all();
+        dd($session);*/
 
         Auth::login($user);
 

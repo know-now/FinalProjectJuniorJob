@@ -6,6 +6,7 @@ use App\Models\Candidate;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCandidateProfile extends Controller
 {
@@ -48,18 +49,23 @@ class CreateCandidateProfile extends Controller
             'role_id' => 'required|min:1|max:20',
         ]);
 
+        //Retrieve the id from the session
+        $user_id = session('user_id');
+
         // Create a Candidate object
         $candidate = new Candidate;
-        Candidate::create([
-            first_name = $request->first_name;
-            last_name = $request->last_name;
-            phone_number = $request->phone_number;
-            linkedin = $request->linkedin;
-           github = $request->github;
-            education = $request->education;
-            role_id = $request->role_id;
-        ])
-
+        Schema::disableForeignKeyConstraints();
+        $candidate = Candidate::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'phone_number' => $request->phone_number,
+            'linkedin' => $request->linkedin,
+            'github' => $request->github,
+            'education' => $request->education,
+            'role_id' => $request->role_id,
+            'user_id' =>$user_id,
+        ]);
+        Schema::enableForeignKeyConstraints();
 
         // Save it in the DB and check if it worked
         if ($candidate->save())

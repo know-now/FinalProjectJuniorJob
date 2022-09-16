@@ -26,6 +26,7 @@ class Candidate extends Model
         "education",
         "role_id",
         "user_id",
+        "user_id",
     ];
 
     /**
