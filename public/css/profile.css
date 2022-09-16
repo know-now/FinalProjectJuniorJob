@@ -2,3 +2,8 @@ html,
 body {
     height: 100%;
 }
+
+.profile-btn{
+    background-color: #00A2DF;
+    border: white;
+}
