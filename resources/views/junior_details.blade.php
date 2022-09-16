@@ -1,5 +1,6 @@
 @extends('layouts.template')
 
+@section('content')
 <h1>Information about Junior</h1>
 
 <h4>Name:</h4>
@@ -9,3 +10,4 @@
 <h4>Developer skills:</h4>
 <h4>E-mail:</h4>
 <h4>Download CV:</h4>
+@endsection

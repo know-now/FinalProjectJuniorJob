@@ -1,5 +1,6 @@
 @extends('layouts.template')
 
+@section('content')
 <h1>Juniors, write here your skills</h1>
 
 <h2>What languages do you know?</h2>
@@ -31,3 +32,4 @@
         <input type="checkbox">
         <span class="checkmark"></span>
       </label>
+      @endsection

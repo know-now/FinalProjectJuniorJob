@@ -5,13 +5,7 @@
     <h1>Companies, what skills do you need?</h1>
 
     <h2>What languages do you need?</h2>
-    @foreach ($specializations as $specialization)
-        <label class="container">{{ $specialization }}
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-        </label>
-    @endforeach
-
+  
     <label class="container">Front End
         <input type="checkbox" checked="checked">
         <span class="checkmark"></span>
