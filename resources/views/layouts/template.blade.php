@@ -13,6 +13,7 @@
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/footer_style.css">
     <link rel="stylesheet" href="/css/navbar_style.css">
+    <link rel="stylesheet" href="/css/content_style.css">
     <title>@yield('title')</title>
     @yield('css')
 </head>
@@ -49,55 +50,55 @@
         <li><a href="/grade">Test Results</a></li>
         <li><a href="/junior_details">Info about Junior</a></li>
     </nav>
-    
+
     <div class="content">
         @yield('content')
     </div>
 
 
 
-<footer>
-    <div class="container text-center">
-        <div class="row justify-content-between align-items-center">
-            <div class="col-sm-4 col-md-4">
-                <div class="footer-logo">
-                    <img src="{{ URL::asset('/assets/find_your_junior_black.png') }}" alt="">
+    <footer>
+        <div class="container text-center">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-sm-4 col-md-4">
+                    <div class="footer-logo">
+                        <img src="{{ URL::asset('/assets/find_your_junior_black.png') }}" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="footer-heading">
-                    <h3>About Us</h3>
+                <div class="col-sm-4 col-md-4">
+                    <div class="footer-heading">
+                        <h3>About Us</h3>
+                    </div>
+                    <p>A Place to Find The Talent of Tommorrow </p>
+                    <p>Platform for Juniors to start carrer</p>
+                    <p></p>
+                    <p></p>
                 </div>
-                <p>A Place to Find The Talent of Tommorrow </p>
-                <p>Platform for Juniors to start carrer</p>
-                <p></p>
-                <p></p>
-            </div>
-            <div class="col-sm-4 col-md-4">
-                <div class="footer-heading">
-                    <h3>Contact</h3>
-                </div>
-                <p>info@findyourjunior.io</p>
-                <p>+352 123 456 789</p>
+                <div class="col-sm-4 col-md-4">
+                    <div class="footer-heading">
+                        <h3>Contact</h3>
+                    </div>
+                    <p>info@findyourjunior.io</p>
+                    <p>+352 123 456 789</p>
 
-                <ul>
-                    <li><a href=""><span class="fab fa-facebook" aria-hidden="true"></span> <span
-                                class="sr-only">Facebook</span></a></li>
-                    <li><a href=""><span class="fab fa-twitter" aria-hidden="true"></span> <span
-                                class="sr-only">Tweeter</span></a></li>
-                    <li><a href=""><span class="fab fa-linkedin-in" aria-hidden="true"></span> <span
-                                class="sr-only">LinkedIn</span></a></li>
-                </ul>
+                    <ul>
+                        <li><a href=""><span class="fab fa-facebook" aria-hidden="true"></span> <span
+                                    class="sr-only">Facebook</span></a></li>
+                        <li><a href=""><span class="fab fa-twitter" aria-hidden="true"></span> <span
+                                    class="sr-only">Tweeter</span></a></li>
+                        <li><a href=""><span class="fab fa-linkedin-in" aria-hidden="true"></span> <span
+                                    class="sr-only">LinkedIn</span></a></li>
+                    </ul>
 
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>

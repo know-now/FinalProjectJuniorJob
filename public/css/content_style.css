@@ -1,0 +1,62 @@
+
+.candidate{
+  background-image: url("/assets/red-background.png");
+  background-color: transparent;
+  height: 500px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+
+/* place for company description*/
+
+.description-row {
+  height: 300px;
+  color: black
+}
+
+
+button {
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border: solid white;
+  width: 200px;
+}
+
+
+button:hover {
+  color: black;
+  border-color: red;
+}
+
+.home-text {
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+h4{
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.company{
+
+  background-color: #00A2DF;
+  height: 500px;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
