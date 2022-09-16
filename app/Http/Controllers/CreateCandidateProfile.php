@@ -69,9 +69,7 @@ class CreateCandidateProfile extends Controller
 
         // Save it in the DB and check if it worked
         if ($candidate->save())
-            return redirect('dashboard')->with('success', 'Profile created successfully');
-        else
-            return 'Problem inserting';
+        return redirect('dashboard')->with('success', 'Profile created successfully') or die('Problem creating profile.');
     }
 
     /**
