@@ -79,10 +79,82 @@
                 </div>
 
             </div>
-            <div class="row step step-2">
-                <div class="row">
+            <div class="row step gy-2 step-2">
+                <h4>What programming languages do you know?</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1">
+                    <label class="form-check-label">
+                        HTML
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="2">
+                    <label class="form-check-label">
+                        Java Script
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="3">
+                    <label class="form-check-label">
+                        CSS
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1">
+                    <label class="form-check-label">
+                        PHP
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="2">
+                    <label class="form-check-label">
+                        Python
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="3">
+                    <label class="form-check-label">
+                        Java
+                    </label>
+                </div>
+
+                <h4>What languages do you speak?</h4>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="1">
+                    <label class="form-check-label">
+                        English
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="2" >
+                    <label class="form-check-label">
+                        French
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="3" >
+                    <label class="form-check-label">
+                        German
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="4" >
+                    <label class="form-check-label">
+                        Luxembourgish
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="5" >
+                    <label class="form-check-label">
+                        Other
+                    </label>
+                </div>
+
+            
+                <div class="row my-4">
                     <div class="col-md-6 d-flex">
-                        <button class="w-50 btn btn-md prev-btn" type="button">Previous</button></div>
+                        <button class="w-50 btn btn-md prev-btn" type="button">Previous</button>
+                    </div>
                     <div class="col-md-6 d-flex justify-content-end">
                         <input type="submit" class="w-50 btn btn-primary btn-md profile-btn" value="Create Profile">
                     </div>
