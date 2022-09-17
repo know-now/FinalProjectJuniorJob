@@ -80,8 +80,13 @@
 
             </div>
             <div class="row step step-2">
-                <button class="w-100 btn btn-lg my-4 prev-btn" type="button">Previous</button>
-                <input type="submit" class="w-100 btn btn-primary btn-lg my-4 profile-btn" value="Create Profile">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <button class="w-50 btn btn-md prev-btn" type="button">Previous</button></div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <input type="submit" class="w-50 btn btn-primary btn-md profile-btn" value="Create Profile">
+                    </div>
+                </div>
             </div>
 
 
@@ -96,13 +101,13 @@
         const prevBtn = document.querySelectorAll("form .prev-btn");
         const form = document.querySelector("form");
 
-        nextBtn.forEach((button) => {
-            button.addEventListener("click", () => {
-                changeStep("next");
+        nextBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                changeActiveState("next");
             });
         });
-        prevBtn.forEach((button) => {
-            button.addEventListener("click", () => {
+        prevBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
                 changeActiveState("prev");
             });
         });
