@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CreateCandidateProfile;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,5 +68,15 @@ Route::get('/junior_details', function () {
 Route::get('/grade', function () {
     return view('grade');
 })->middleware(['auth'])->name('grade');
+
+Route::group(['middleware'=>'auth', 'prefix' => 'messages'], function () {
+    Route::get('/', [MessagesController::class, 'index']);
+    Route::get('/create', [MessagesController::class, 'create']);
+    Route::post('/', [MessagesController::class,'store']);
+    Route::get('{id}', [MessagesController::class,'show']);
+    Route::put('{id}', [MessagesController::class,'update']);
+    Route::post('store', [MessagesController::class, 'store'])->name('store');
+});
+
 
 require __DIR__.'/auth.php';
