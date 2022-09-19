@@ -20,8 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profile', [CreateCandidateProfile::class, 'index']);
-Route::post('/profile', [CreateCandidateProfile::class, 'store']);
+Route::get('/profile', [CreateCandidateProfile::class, 'index'])->name('profile');
+Route::post('/profile', [CreateCandidateProfile::class, 'store'])->name('profile');
+Route::get('/profile/{id}', [CreateCandidateProfile::class, 'show'])->name('profile');
 
 Route::get('/company', function () {
     return view('company');

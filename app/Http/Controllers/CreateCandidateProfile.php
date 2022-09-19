@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
-
-
+use App\Models\CandidateLanguage;
+use App\Models\CandidateSkill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
 class CreateCandidateProfile extends Controller
 {
+    function get_id($user_id)
+    {
+        //Retrieve the id from the session
+        $user_id = session('user_id');
+        return $user_id;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -38,7 +44,7 @@ class CreateCandidateProfile extends Controller
      */
     public function store(Request $request)
     {
-
+        //dd($request->languages);
         $request->validate([
             'first_name' => 'required|min:3|max:30',
             'last_name' => 'required|min:3|max:30',
@@ -54,7 +60,9 @@ class CreateCandidateProfile extends Controller
 
         // Create a Candidate object
         $candidate = new Candidate;
+
         Schema::disableForeignKeyConstraints();
+
         $candidate = Candidate::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -63,13 +71,30 @@ class CreateCandidateProfile extends Controller
             'github' => $request->github,
             'education' => $request->education,
             'role_id' => $request->role_id,
-            'user_id' =>$user_id,
+            'user_id' => $user_id,
         ]);
+
+        $candidate_id = $candidate->id;
+
+        //insert into candidate_languages table
+        $candidate_language = new CandidateLanguage;
+        $candidate_language = CandidateLanguage::create([
+            'candidate_id' => $candidate_id,
+            'language_id' => $request->languages,
+        ]);
+
+        //insert into candidate_skills table
+        $candidate_skill = new CandidateSkill;
+        $candidate_skill = CandidateSkill::create([
+            'candidate_id' => $candidate_id,
+            'skill_id' => $request->skills,
+        ]);
+
         Schema::enableForeignKeyConstraints();
 
         // Save it in the DB and check if it worked
-        if ($candidate->save())
-        return redirect('dashboard')->with('success', 'Profile created successfully') or die('Problem creating profile.');
+        if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
+            return redirect()->route('profile', ['id' => 1]);
     }
 
     /**
@@ -80,7 +105,8 @@ class CreateCandidateProfile extends Controller
      */
     public function show($id)
     {
-        //
+        $candidate = Candidate::find($id);
+        return view('display_candidate_profile', ['candidate' => $candidate]);
     }
 
     /**

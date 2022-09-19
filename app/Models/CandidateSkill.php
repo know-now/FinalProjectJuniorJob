@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
-class Candidate extends Model
+class CandidateSkill extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasFactory;
     public $timestamps = false;
 
     /**
@@ -18,14 +16,8 @@ class Candidate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "first_name",
-        "last_name",
-        "phone_number",
-        "linkedin",
-        "github",
-        "education",
-        "role_id",
-        "user_id",
+        "candidate_id",
+        "skill_id",
     ];
 
     /**
@@ -34,7 +26,7 @@ class Candidate extends Model
      * @var array<int, string>
      */
     protected $hidden = [
-        'remember_token',
+        
     ];
 
     /**
@@ -43,6 +35,6 @@ class Candidate extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        
     ];
 }
