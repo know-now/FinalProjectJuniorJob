@@ -23,7 +23,7 @@
         <div class="navbar-container">
             <div class="navbar-image">
                 <a class="navbar-brand" href="">
-                    <img src="{{ URL::asset('/assets/find_your_junior_black sm.png') }}" alt="Bootstrap">
+                    <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
                 </a>
             </div>
             <div class="navbar-ul">

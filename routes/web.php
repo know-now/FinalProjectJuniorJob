@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CreateCandidateProfile;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/profile', [CreateCandidateProfile::class, 'index'])->name('profile');
+Route::post('/profile', [CreateCandidateProfile::class, 'store'])->name('profile');
+Route::get('/profile/{id}', [CreateCandidateProfile::class, 'show'])->name('profile');
 
 Route::get('/company', function () {
     return view('company');
