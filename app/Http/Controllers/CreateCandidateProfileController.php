@@ -8,14 +8,9 @@ use App\Models\CandidateSkill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCandidateProfile extends Controller
+class CreateCandidateProfileController extends Controller
 {
-    function get_id($user_id)
-    {
-        //Retrieve the id from the session
-        $user_id = session('user_id');
-        return $user_id;
-    }
+
     /**
      * Display a listing of the resource.
      *
@@ -44,7 +39,16 @@ class CreateCandidateProfile extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->languages);
+        //Retrieve the id from the session
+        $user_id = session('user_id');
+
+        $user_id = array_filter(session()->all(), function ($value, $key) {
+            return strpos($key, 'login_web') === 0;
+        }, ARRAY_FILTER_USE_BOTH);
+        foreach ($user_id as $key => $value) {
+            return $value;
+        }
+        
         $request->validate([
             'first_name' => 'required|min:3|max:30',
             'last_name' => 'required|min:3|max:30',
@@ -54,9 +58,6 @@ class CreateCandidateProfile extends Controller
             'education' => 'required|min:1|max:20',
             'role_id' => 'required|min:1|max:20',
         ]);
-
-        //Retrieve the id from the session
-        $user_id = session('user_id');
 
         // Create a Candidate object
         $candidate = new Candidate;
@@ -94,7 +95,7 @@ class CreateCandidateProfile extends Controller
 
         // Save it in the DB and check if it worked
         if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
-            return redirect()->route('profile', ['id' => 1]);
+            return redirect()->route('profile', ['id' => $candidate->first_name]);
     }
 
     /**
@@ -105,7 +106,13 @@ class CreateCandidateProfile extends Controller
      */
     public function show($id)
     {
-        $candidate = Candidate::find($id);
+        $user_id = array_filter(session()->all(), function ($value, $key) {
+            return strpos($key, 'login_web') === 0;
+        }, ARRAY_FILTER_USE_BOTH);
+        foreach ($user_id as $key => $value) {
+            return $value;
+        }
+        $candidate = Candidate::all();
         return view('display_candidate_profile', ['candidate' => $candidate]);
     }
 

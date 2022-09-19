@@ -8,5 +8,6 @@
 </head>
 <body>
     <h2>Welcome to your profile.</h2>
+    <?php dd($candidate) ?>
 </body>
 </html>
