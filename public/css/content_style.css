@@ -1,71 +1,34 @@
-
-.candidate{
-  background-image: url("/assets/red-background.png");
-  background-color: transparent;
-  height: 500px;
-  background-repeat: no-repeat;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  
+.candidate {
+    background-image: url("/assets/red-background.png");
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
 }
 
-
-/* place for company description*/
-
-.description-row {
-  height: 300px;
-  color: black
+.btn {
+    border: solid #00a2df;
 }
 
-
-button {
-  padding: 10px;
-  background-color: transparent;
-  color: white;
-  border: solid white;
-  width: 200px;
+.btn:hover {
+    border-color: red;
 }
 
-
-button:hover {
-  color: black;
-  border-color: red;
+.btn-Iam {
+    border: solid white;
 }
 
-.home-text {
-  font-size: 30px;
-  margin-bottom: 15px;
-  color: white;
+.company {
+    background-color: #00a2df;
+}
+.team {
+    background-color: #00a2df;
 }
 
-h4{
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: white;
+div.temp-navbar {
+    font-size: x-small;
+    color: white;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    flex-direction: row;
 }
-
-.company{
-
-  background-color: #00A2DF;
-  height: 500px;
-  background-repeat: no-repeat;
-  object-fit: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  
-}
-
-div.temp-navbar{
-  font-size: x-small;
-  color: white;
-  background-color: rgb(250, 250, 250);
-  display: flex;
-  flex-direction: row;
-
-}
-
