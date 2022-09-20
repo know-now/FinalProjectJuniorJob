@@ -1,13 +1,8 @@
-<div class="media">
-    <a class="pull-left" href="#">
-        <img src="//www.gravatar.com/avatar/{{ md5($message->user->email) }} ?s=64"
-             alt="{{ $message->user->name }}" class="img-circle">
-    </a>
-    <div class="media-body">
-        <h5 class="media-heading">{{ $message->user->name }}</h5>
-        <p>{{ $message->body }}</p>
-        <div class="text-muted">
-            <small>Posted {{ $message->created_at->diffForHumans() }}</small>
-        </div>
-    </div>
+<div class="px-4 py-2 leading-relaxed border rounded-lg sm:px-6 sm:py-4">
+    <span class="font-semibold">{{ $message->user->name }}</span>
+    <span class="text-xs text-gray-400">{{ $message->created_at->diffForHumans() }}
+    </span>
+    <p class="text-sm">
+        {{ $message->body }}
+    </p>
 </div>

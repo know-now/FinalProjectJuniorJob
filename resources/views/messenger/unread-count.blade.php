@@ -1,4 +1,5 @@
 <?php $count = Auth::user()->newThreadsCount(); ?>
-@if($count > 0)
-    <span class="label label-danger">{{ $count }}</span>
+
+@if ($count > 0)
+    <span class="ml-1">({{ $count }})</span>
 @endif

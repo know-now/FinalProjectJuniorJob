@@ -69,13 +69,13 @@ Route::get('/grade', function () {
     return view('grade');
 })->middleware(['auth'])->name('grade');
 
-Route::group(['middleware'=>'auth', 'prefix' => 'messages'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);
-    Route::get('/create', [MessagesController::class, 'create']);
-    Route::post('/', [MessagesController::class,'store']);
-    Route::get('{id}', [MessagesController::class,'show']);
-    Route::put('{id}', [MessagesController::class,'update']);
-    Route::post('store', [MessagesController::class, 'store'])->name('store');
+    Route::get('create', [MessagesController::class, 'create'])->name('.create');
+    Route::post('/', [MessagesController::class, 'store'])->name('.store');
+    Route::get('{thread}', [MessagesController::class, 'show'])->name('.show');
+    Route::put('{thread}', [MessagesController::class, 'update'])->name('.update');
+    Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
 });
 
 

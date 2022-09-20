@@ -1,16 +1,16 @@
-<?php $class = $thread->isUnread(Auth::id()) ? 'alert-info' : ''; ?>
+<tr class="{{ $thread->isUnread(Auth::id()) ? 'font-bold' : '' }}">
+    <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+        <a class="hover:underline" href="{{ route('messages.show', $thread) }}">{{ $thread->creator()->name }}</a>
+    </td>
+    <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+        <a class="hover:underline" href="{{ route('messages.show', $thread) }}">{{ $thread->subject }}</a>
+    </td>
+    <td class="px-5 py-5 text-sm bg-white border-b border-gray-200">
+        <form action="{{ route('messages.destroy', $thread) }}" method="POST">
+            @csrf
+            @method('DELETE')
 
-<div class="media alert {{ $class }}">
-    <h4 class="media-heading">
-        <a href="{{ route('messages.show', $thread->id) }}">{{ $thread->subject }}</a>
-        ({{ $thread->userUnreadMessagesCount(Auth::id()) }} unread)</h4>
-    <p>
-        {{ $thread->latestMessage->body }}
-    </p>
-    <p>
-        <small><strong>Creator:</strong> {{ $thread->creator()->name }}</small>
-    </p>
-    <p>
-        <small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small>
-    </p>
-</div>
+            <x-button>Delete</x-button>
+        </form>
+    </td>
+</tr>
