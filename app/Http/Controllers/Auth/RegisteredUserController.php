@@ -39,7 +39,6 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
-
         $user = User::create([
             'email' => $request->email,
             'password' => Hash::make($request->password),
@@ -47,14 +46,11 @@ class RegisteredUserController extends Controller
         ]);
 
 
-        event(new Registered($user));      
-
-        $user_id = $user->id;
-        session(['user_id' => $user_id]);
-        session()->save();
+        event(new Registered($user));              
         
-        /*$session = session()->all();
-        dd($session);*/
+        /*$user_id = $user->id;
+        session(['user_id' => $user_id]);
+        session()->save();*/
 
         Auth::login($user);
 
