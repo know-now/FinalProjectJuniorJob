@@ -12,6 +12,20 @@ class Candidate extends Model
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
 
+    public function roles()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'candidate_skills');
+    }
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class, 'candidate_languages');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

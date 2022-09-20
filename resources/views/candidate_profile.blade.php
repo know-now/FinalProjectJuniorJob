@@ -82,37 +82,37 @@
             <div class="row step gy-2 step-2">
                 <h4>What programming languages do you know?</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="skills">
+                    <input class="form-check-input" type="checkbox" value="1" name="skills[]">
                     <label class="form-check-label">
                         HTML
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" name="skills">
+                    <input class="form-check-input" type="checkbox" value="2" name="skills[]">
                     <label class="form-check-label">
                         Java Script
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" name="skills">
+                    <input class="form-check-input" type="checkbox" value="3" name="skills[]">
                     <label class="form-check-label">
                         CSS
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" name="skills">
+                    <input class="form-check-input" type="checkbox" value="4" name="skills[]">
                     <label class="form-check-label">
                         PHP
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="skills">
+                    <input class="form-check-input" type="checkbox" value="5" name="skills[]">
                     <label class="form-check-label">
                         Python
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="6" name="skills">
+                    <input class="form-check-input" type="checkbox" value="6" name="skills[]">
                     <label class="form-check-label">
                         Java
                     </label>

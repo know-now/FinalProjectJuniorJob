@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Route::get('/profile', [CreateCandidateProfileController::class, 'index'])->name('profile');
 Route::post('/profile', [CreateCandidateProfileController::class, 'store'])->name('profile');
-Route::get('/profile/{id}', [CreateCandidateProfileController::class, 'show'])->name('profile');
+Route::get('/profile/{name}', [CreateCandidateProfileController::class, 'show'])->name('profile');
 
 Route::get('/company', function () {
     return view('company');

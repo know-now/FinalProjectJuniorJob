@@ -8,6 +8,14 @@
 </head>
 <body>
     <h2>Welcome to your profile.</h2>
-    <?php dd($candidate) ?>
+    <p>First Name: {{$candidate->first_name}}</p>
+    <p>Last Name: {{$candidate->last_name}}</p>
+    <p>Phone Number: {{$candidate->phone_number}}</p>
+    <p>Candidate: {{$candidate->linkedin}}</p>
+    <p>GitHub: {{$candidate->github}}</p>
+    <p>Education: {{$candidate->education}}</p>
+    <p>Role: {{$candidate_role->role}}</p>
+    <p>Skills: {{$candidate_skill->skill}}</p>
+    <p>Languages: {{$candidate_language->language}}</p>
 </body>
 </html>
