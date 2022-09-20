@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.template')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile</title>
-    <link rel="stylesheet" href="css/reset.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/profile.css">
-</head>
-
-<body>
-    <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="#"
-            class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-            <img src="assets/find_your_junior_black_sm.png" class="img-fluid col-sm-4" alt="">
-            <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
-        </a>
-
-        <ul class="nav nav-pills align-items-center">
-            <li class="nav-item"><a href="#" class="nav-link">Lorem</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Lorem</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Lorem</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Lorem</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Lorem</a></li>
-        </ul>
-    </nav>
+@section('content')
     <div class="container">
         <form method="post" class="py-4 m-auto w-75">
             @csrf
@@ -82,37 +55,37 @@
             <div class="row step gy-2 step-2">
                 <h4>What programming languages do you know?</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="skills">
+                    <input class="form-check-input" type="checkbox" value="1" name="skills[]">
                     <label class="form-check-label">
                         HTML
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" name="skills">
+                    <input class="form-check-input" type="checkbox" value="2" name="skills[]">
                     <label class="form-check-label">
                         Java Script
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" name="skills">
+                    <input class="form-check-input" type="checkbox" value="3" name="skills[]">
                     <label class="form-check-label">
                         CSS
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" name="skills">
+                    <input class="form-check-input" type="checkbox" value="4" name="skills[]">
                     <label class="form-check-label">
                         PHP
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="skills">
+                    <input class="form-check-input" type="checkbox" value="5" name="skills[]">
                     <label class="form-check-label">
                         Python
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="6" name="skills">
+                    <input class="form-check-input" type="checkbox" value="6" name="skills[]">
                     <label class="form-check-label">
                         Java
                     </label>
@@ -120,31 +93,31 @@
 
                 <h4>What languages do you speak?</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="languages">
+                    <input class="form-check-input" type="checkbox" value="1" name="languages[]">
                     <label class="form-check-label">
                         English
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" name="languages">
+                    <input class="form-check-input" type="checkbox" value="2" name="languages[]">
                     <label class="form-check-label">
                         French
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" name="languages">
+                    <input class="form-check-input" type="checkbox" value="3" name="languages[]">
                     <label class="form-check-label">
                         German
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" name="languages">
+                    <input class="form-check-input" type="checkbox" value="4" name="languages[]">
                     <label class="form-check-label">
                         Luxembourgish
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="languages">
+                    <input class="form-check-input" type="checkbox" value="5" name="languages[]">
                     <label class="form-check-label">
                         Other
                     </label>
@@ -160,46 +133,9 @@
                     </div>
                 </div>
             </div>
-
-
         </form>
-
-
-
     </div>
-    <script>
-        const steps = Array.from(document.querySelectorAll("form .step"));
-        const nextBtn = document.querySelectorAll("form .next-btn");
-        const prevBtn = document.querySelectorAll("form .prev-btn");
-        const form = document.querySelector("form");
-
-        nextBtn.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                changeActiveState("next");
-            });
-        });
-        prevBtn.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                changeActiveState("prev");
-            });
-        });
-
-        function changeActiveState(btn) {
-            let index = 0;
-            const active = document.querySelector(".active");
-            index = steps.indexOf(active);
-            steps[index].classList.remove("active");
-            if (btn === "next") {
-                index++;
-            } else if (btn === "prev") {
-                index--;
-            }
-            steps[index].classList.add("active");
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+@endsection
+@section('js')
+    <script src="js/profile.js"></script>
+@endsection
