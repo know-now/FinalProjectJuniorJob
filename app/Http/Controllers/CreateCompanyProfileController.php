@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use App\Models\CompanyIndustry;
+use App\Models\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 
-class CreateCompanyProfile extends Controller
+class CreateCompanyProfileController extends Controller
 {
-    function get_id($user_id)
-    {
-        //Retrieve the id from the session
-        $user_id = session('user_id');
-        return $user_id;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +52,7 @@ class CreateCompanyProfile extends Controller
         ]);
 
         //Retrieve the id from the session
-        $user_id = session('user_id');
+        $user_id = Auth::id();
 
 
         // Create a company object
@@ -81,8 +75,8 @@ class CreateCompanyProfile extends Controller
         $company_id = $company->id;
 
         //insert into company_industry table
-        $company_industry = new CompanyIndustry;
-        $company_industry = CompanyIndustry::create([
+        $company_industry = new Industry;
+        $company_industry = Industry::create([
             'company_id'=>$company_id,
             'industry_id' => $request->industries,
         ]);
