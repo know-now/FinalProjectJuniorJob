@@ -84,7 +84,7 @@ class CreateCandidateProfileController extends Controller
         foreach ($languages as $language) {
             $candidate_language = CandidateLanguage::create([
                 'candidate_id' => $candidate_id,
-                'language_id' => $request->languages,
+                'language_id' => $language,
             ]);
         }
 
@@ -97,12 +97,12 @@ class CreateCandidateProfileController extends Controller
                 'skill_id' => $skill,
             ]);
         }
-
+        
         Schema::enableForeignKeyConstraints();
 
         // Save it in the DB and check if it worked
         if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
-            return redirect()->route('profile', ['name' => $candidate->first_name]) or die ('Problems creating profile!');
+            return redirect()->route('profile', ['name' => $candidate->first_name]);
     }
 
     /**
