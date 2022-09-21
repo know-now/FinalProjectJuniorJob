@@ -7,24 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Candidate extends Model
+class Company extends Model
 {
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
-
-    public function roles()
-    {
-        return $this->belongsTo(Role::class);
-    }
-
-    public function skills()
-    {
-        return $this->belongsToMany(Skill::class, 'candidate_skills');
-    }
-    public function languages()
-    {
-        return $this->belongsToMany(Language::class, 'candidate_languages');
-    }
 
     /**
      * The attributes that are mass assignable.
@@ -32,14 +18,14 @@ class Candidate extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        "first_name",
-        "last_name",
-        "phone_number",
-        "linkedin",
-        "github",
-        "education",
-        "role_id",
-        "user_id",
+        "email",
+        "password",
+        "contact",
+        "description",
+        "company_name",
+        "date_created",
+        "number_of_employees",
+        "industry_id",
     ];
 
     /**

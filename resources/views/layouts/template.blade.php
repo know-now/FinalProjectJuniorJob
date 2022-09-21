@@ -14,42 +14,54 @@
     <link rel="stylesheet" href="/css/footer_style.css">
     <link rel="stylesheet" href="/css/navbar_style.css">
     <link rel="stylesheet" href="/css/content_style.css">
+    <link rel="stylesheet" href="css/profile.css">
     <title>@yield('title')</title>
     @yield('css')
+    
 </head>
 
 <body>
-    <nav>
-        <div class="navbar-container">
-            <div class="navbar-image">
-                <a class="navbar-brand" href="">
-                    <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
-                </a>
-            </div>
-            <div class="navbar-ul">
-                <ul>
-                    <li>
-                        <a href="/register" class="button">Register</a>
-                    </li>
-                    <li>
-                        <a href="/login" class="button">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @if (Auth::user())
+        <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="#"
+                class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
+                <img src="assets/find_your_junior_black_sm.png" class="img-fluid col-sm-4" alt="">
+                <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
+            </a>
 
-    <div class = "temp-navbar">
-        <li><a href="/adem">Work permit in ADEM</a></li>
-        <li><a href="/dashboard">My account</a></li>
-        <li><a href="/junior_profile">Junior profile</a></li>
-        <li><a href="/junior">Junior Homepage</a></li>
-        <li><a href="/skills">Search a Junior</a></li>
-        <li><a href="/">Company Homepage</a></li>
-        <li><a href="/soft_skills">Soft Skills</a></li>
-        <li><a href="/grade">Test Results</a></li>
-        <li><a href="/junior_details">Info about Junior</a></li>
-    </div>
+            <ul class="nav nav-pills align-items-center">
+                <li class="nav-item"><a href="adem" class="nav-link">Work permit in ADEM</a></li>
+                <li class="nav-item"><a href="dashboard" class="nav-link">My account</a></li>
+                <li class="nav-item"><a href="junior_profile" class="nav-link">Junior profile</a></li>
+                <li class="nav-item"><a href="junior" class="nav-link">Junior Homepage</a></li>
+                <li class="nav-item"><a href="skills" class="nav-link">Search a Junior</a></li>
+                <li><a href="/">Company Homepage</a></li>
+                <li class="nav-item"><a href="soft_skills" class="nav-link">Soft Skills</a></li>
+                <li class="nav-item"><a href="grade" class="nav-link">Test Results</a></li>
+                <li class="nav-item"><a href="junior_details" class="nav-link">Info about Junior</a></li>
+            </ul>
+        </nav>
+    @else
+        <nav>
+            <div class="navbar-container">
+                <div class="navbar-image">
+                    <a class="navbar-brand" href="">
+                        <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
+                    </a>
+                </div>
+                <div class="navbar-ul">
+                    <ul>
+                        <li>
+                            <a href="/register" class="button">Register</a>
+                        </li>
+                        <li>
+                            <a href="/login" class="button">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    @endif
 
     <div class="content">
         @yield('content')
@@ -95,7 +107,7 @@
         </div>
     </footer>
 
-
+    @yield('js')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>
