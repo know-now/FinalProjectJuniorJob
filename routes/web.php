@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\CreateCandidateProfileController;
-use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\CreateCandidateProfileController;
 
 
 /*
