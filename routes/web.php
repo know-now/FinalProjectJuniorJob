@@ -6,7 +6,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\CreateCompanyProfileController;
 use App\Http\Controllers\CreateCandidateProfileController;
-
+ 
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//warning routes
+Route::get('warning-profile', function(){
+    return view('warning.profile');
+})->name('warning-profile');
+
 //routes for the candidate/junior profile
 Route::get('/profile', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile');
 Route::post('/profile', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
@@ -32,6 +37,7 @@ Route::get('/profile/{name}', [CreateCandidateProfileController::class, 'show'])
 Route::get('/company', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company');
 Route::post('/company', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
 Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
+
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
