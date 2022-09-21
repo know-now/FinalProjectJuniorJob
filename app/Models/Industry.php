@@ -10,6 +10,11 @@ class Industry extends Model
     use HasFactory;
     public $timestamps = false;
 
+    public function companies()
+    {
+        return $this->hasMany(Company::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *

@@ -12,20 +12,24 @@ class Company extends Model
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
 
+    public function industries()
+    {
+        return $this->belongsTo(Industry::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        "email",
-        "password",
         "contact",
         "description",
         "company_name",
         "date_created",
         "number_of_employees",
         "industry_id",
+        "user_id",
     ];
 
     /**

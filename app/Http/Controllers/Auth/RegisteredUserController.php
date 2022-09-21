@@ -46,14 +46,18 @@ class RegisteredUserController extends Controller
         ]);
 
 
-        event(new Registered($user));              
-        
-        /*$user_id = $user->id;
+        event(new Registered($user));
+
+        /*$user_id = $user->id;r
         session(['user_id' => $user_id]);
         session()->save();*/
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        //depending on the type of user, send them to different profile creation forms
+        if ($user->type === 'company')
+            return redirect(RouteServiceProvider::CREATE_COMPANY);
+        else
+            return redirect(RouteServiceProvider::CREATE_CANDIDATE);
     }
 }
