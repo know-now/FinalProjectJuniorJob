@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use App\Models\CompanyIndustry;
+use App\Models\Industry;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Auth;
 
-class CreateCompanyProfile extends Controller
+class CreateCompanyProfileController extends Controller
 {
-    function get_id($user_id)
-    {
-        //Retrieve the id from the session
-        $user_id = session('user_id');
-        return $user_id;
-    }
     /**
      * Display a listing of the resource.
      *
@@ -44,10 +38,8 @@ class CreateCompanyProfile extends Controller
      */
     public function store(Request $request)
     {
-    
+
         $request->validate([
-            'email' => 'required|min:3|max:30',
-            'password' => 'required|min:8',
             'contact' => 'required',
             'description' => 'required|min:3|max:250',
             'company_name' => 'required|min:3',
@@ -58,7 +50,7 @@ class CreateCompanyProfile extends Controller
         ]);
 
         //Retrieve the id from the session
-        $user_id = session('user_id');
+        $user_id = Auth::id();
 
 
         // Create a company object
@@ -67,33 +59,20 @@ class CreateCompanyProfile extends Controller
         Schema::disableForeignKeyConstraints();
 
         $company = Company::create([
-            'email' => $request->email,
-            'password' => $request->password,
             'contact' => $request->contact,
             'description' => $request->description,
             'company_name' => $request->company_name,
             'date_created' => $request->date_created,
             'number_of_employees' => $request->number_of_employees,
-            'industry_id'=>$request->industry_id,
+            'industry_id' => $request->industry_id,
             'user_id' => $user_id,
         ]);
-
-        $company_id = $company->id;
-
-        //insert into company_industry table
-        $company_industry = new CompanyIndustry;
-        $company_industry = CompanyIndustry::create([
-            'company_id'=>$company_id,
-            'industry_id' => $request->industries,
-        ]);
-
-    
 
         Schema::enableForeignKeyConstraints();
 
         // Save it in the DB and check if it worked
-        if ($company->save() && $company_industry->save())
-            return redirect()->route('company_profile', ['name' => $company-> company_name]);
+        if ($company->save())
+            return redirect()->route('company', ['name' => $company->company_name]);
     }
 
     /**
@@ -106,8 +85,12 @@ class CreateCompanyProfile extends Controller
     {
         $user_id = Auth::id();
 
-        $company = Company::where('user_id',$user_id)->first();
-        return view('display_company_profile', ['company' => $company]);
+        $company = Company::where('user_id', $user_id)->first();
+
+        $industry_id = $company->industry_id;
+        $company_industry = Industry::find($industry_id);
+
+        return view('display_company_profile', ['company' => $company, 'company_industry' => $company_industry]);
     }
 
     /**

@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\CreateCompanyProfileController;
 use App\Http\Controllers\CreateCandidateProfileController;
 
 
@@ -21,13 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//routes for the candidate/junior profile
 Route::get('/profile', [CreateCandidateProfileController::class, 'index'])->name('profile');
 Route::post('/profile', [CreateCandidateProfileController::class, 'store'])->name('profile');
 Route::get('/profile/{name}', [CreateCandidateProfileController::class, 'show'])->name('profile');
 
-Route::get('/company', function () {
+//routes for the company profile
+Route::get('/company', [CreateCompanyProfileController::class, 'index'])->name('company');
+Route::post('/company', [CreateCompanyProfileController::class, 'store'])->name('company');
+Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->name('company');
+
+/*Route::get('/company', function () {
     return view('company');
-});
+});*/
 
 Route::get('/junior', function () {
     return view('junior');
@@ -49,9 +57,6 @@ Route::post('/junior_profile', function () {
 })->middleware(['auth'])->name('junior_profile');
 
 Route::get('/skills', [SkillController::class, 'index'])->middleware(['auth'])->name('skills');
-Route::post('/company_profile', function () {
-    return view('company_profile');
-})->middleware(['auth'])->name('company_profile');
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
