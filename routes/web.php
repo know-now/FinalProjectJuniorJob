@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\CreateCandidateProfileController;
-use App\Http\Controllers\CreateCompanyProfileController;
-use App\Http\Controllers\SkillController;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SkillController;
+use App\Http\Controllers\MessagesController;
+use App\Http\Controllers\CreateCompanyProfileController;
+use App\Http\Controllers\CreateCandidateProfileController;
 
 
 /*
@@ -71,5 +73,15 @@ Route::get('/junior_details', function () {
 Route::get('/grade', function () {
     return view('grade');
 })->middleware(['auth'])->name('grade');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
+    Route::get('/', [MessagesController::class, 'index']);
+    Route::get('create', [MessagesController::class, 'create'])->name('.create');
+    Route::post('/', [MessagesController::class, 'store'])->name('.store');
+    Route::get('{thread}', [MessagesController::class, 'show'])->name('.show');
+    Route::put('{thread}', [MessagesController::class, 'update'])->name('.update');
+    Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
+});
+
 
 require __DIR__.'/auth.php';
