@@ -24,51 +24,31 @@ Route::get('/', function () {
 });
 
 //routes for the candidate/junior profile
-Route::get('/profile', [CreateCandidateProfileController::class, 'index'])->name('profile');
-Route::post('/profile', [CreateCandidateProfileController::class, 'store'])->name('profile');
-Route::get('/profile/{name}', [CreateCandidateProfileController::class, 'show'])->name('profile');
+Route::get('/profile', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile');
+Route::post('/profile', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
+Route::get('/profile/{name}', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('profile');
 
 //routes for the company profile
-Route::get('/company', [CreateCompanyProfileController::class, 'index'])->name('company');
-Route::post('/company', [CreateCompanyProfileController::class, 'store'])->name('company');
-Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->name('company');
-
-/*Route::get('/company', function () {
-    return view('company');
-});*/
-
-Route::get('/junior', function () {
-    return view('junior');
-});
+Route::get('/company', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company');
+Route::post('/company', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
+Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
-});
+})->middleware(['auth']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/junior_profile', function () {
-    return view('junior_profile');
-})->middleware(['auth'])->name('junior_profile');
-Route::post('/junior_profile', function () {
-    return view('junior_profile');
-})->middleware(['auth'])->name('junior_profile');
-
-Route::get('/skills', [SkillController::class, 'index'])->middleware(['auth'])->name('skills');
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
-});
+})->middleware(['auth']);
 
 Route::get('/adem', function () {
     return view('adem');
 })->middleware(['auth'])->name('adem');
-
-Route::get('/junior_details', function () {
-    return view('junior_details');
-})->middleware(['auth'])->name('junior_details');
 
 Route::get('/grade', function () {
     return view('grade');
@@ -84,4 +64,4 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
