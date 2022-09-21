@@ -1,6 +1,7 @@
 <?php
 
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
@@ -39,6 +40,11 @@ Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->
 
 Route::get('/junior', function () {
     return view('junior');
+});
+Route::get('/read-api', function () {
+    $response = Http::withOptions(["verify" => false])->get('https://zenquotes.io/api/quotes?format=json');
+
+    dd($response->body());
 });
 
 Route::get('/soft_skills', function () {
