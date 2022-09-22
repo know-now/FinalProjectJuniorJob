@@ -21,7 +21,12 @@ footer ul {
 
 footer a {
     text-decoration: none;
+    color: #212529;
 }
+
+footer a:hover {
+    text-decoration: none !important;
+} 
 
 footer {
     background-color: rgb(201, 199, 199);
