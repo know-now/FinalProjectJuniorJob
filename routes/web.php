@@ -1,12 +1,14 @@
 <?php
 
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\CreateCompanyProfileController;
 use App\Http\Controllers\CreateCandidateProfileController;
- 
+
 
 /*
 |--------------------------------------------------------------------------
