@@ -39,6 +39,10 @@ Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middl
 //routes for the company profile
 Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('/company/create');
 Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('/company');
+
+Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth'])->name('/company/edit');
+//Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth'])->name('/company/edit');
+
 Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('/company');
 
 

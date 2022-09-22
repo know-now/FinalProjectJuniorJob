@@ -5,19 +5,19 @@
     <section class="py-5">
         <div class="container ">
             <div class="row d-flex justify-content-center shadow-sm bg-body rounded">
-                    <div class="col-md-12 col-lg-6">
-                        <h2> Welcome <span class="text-danger">{{ $candidate->first_name }}</span></h2>
-                        <div class="row">
-                            <div class="col-sm-4" style="background-color:rgb(201, 199, 199);">
-                                <div class="card-block text-center text-white">
-                                    <i class="bi bi-person-workspace" style="font-size: 150px; color: #00a2df;"></i>
-                                    <h5 class="mt-4" style="color: #00a2df;" >FIRST NAME</h5>
-                                    <p>{{ $candidate->first_name }}</p>
-                                    <h5 class="mt-4" style="color: #00a2df;">LAST NAME</h5>
-                                    <p>{{ $candidate->last_name }}</p>
-                                    <a href="#"><i class="bi bi-pencil-square"
-                                            style="font-size: 18px; color: #00a2df;"></i></a>
-                                </div>
+                <div class="col-md-12 col-lg-6">
+                    <h2> Welcome <span class="text-danger">{{ $candidate->first_name }}</span></h2>
+                    <div class="row">
+                        <div class="col-sm-4" style="background-color:rgb(201, 199, 199);">
+                            <div class="card-block text-center text-white">
+                                <i class="bi bi-person-workspace" style="font-size: 150px; color: #00a2df;"></i>
+                                <h5 class="mt-4" style="color: #00a2df;">FIRST NAME</h5>
+                                <p>{{ $candidate->first_name }}</p>
+                                <h5 class="mt-4" style="color: #00a2df;">LAST NAME</h5>
+                                <p>{{ $candidate->last_name }}</p>
+                                <a href="#"><i class="bi bi-pencil-square"
+                                        style="font-size: 18px; color: #00a2df;"></i></a>
+                            </div>
 
                         </div>
                         <div class="col-sm-8 bg-white round-right">
@@ -39,11 +39,6 @@
                                     <h6 class="text-muted">{{ $candidate->linkedin }}</h6>
                                     <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
-<<<<<<< HEAD
-=======
-                             
-                        
->>>>>>> 3c54c01a80b82ba79e7379b9dea4308ba5152ada
                             </div>
                             <h4 class="my-5 text-center ">SKILSS & PREFERENCES</h4>
                             <hr class="badge-primary">
