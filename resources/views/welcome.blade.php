@@ -102,7 +102,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-check-square"></i>
+                  <i class="bi bi-check-square" style="color: #00a2df"></i>
                 </div>
                 <h3 class="card-title mb-3">CREATE ACCOUNT</h3>
                 <p class="card-text">
@@ -116,7 +116,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-laptop"></i>
+                  <i class="bi bi-laptop" style="color: #00a2df"></i>
                 </div>
                 <h3 class="card-title mb-3">PUBLISH YOUR JOBS</h3>
                 <p class="card-text">
@@ -131,7 +131,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-envelope-open-heart"></i>
+                  <i class="bi bi-envelope-open-heart" style="color: #00a2df"></i>
                 </div>
                 <h3 class="card-title mb-3">GET BEST MATCHES</h3>
                 <p class="card-text">
@@ -145,7 +145,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-telephone-outbound-fill"></i>
+                  <i class="bi bi-telephone-outbound-fill" style="color: #00a2df"></i>
                 </div>
                 <h3 class="card-title mb-3">CONTACT AND HIRE</h3>
                 <p class="card-text">
@@ -168,7 +168,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-check-square"></i>
+                  <i class="bi bi-check-square" style="color: red"></i>
                 </div>
                 <h3 class="card-title mb-3">FILL YOUR PROFIL</h3>
                 <p class="card-text">
@@ -181,7 +181,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-laptop"></i>
+                  <i class="bi bi-laptop" style="color: red"></i>
                 </div>
                 <h3 class="card-title mb-3">GET PERFECT MATCHES</h3>
                 <p class="card-text">
@@ -195,7 +195,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-envelope-open-heart"></i>
+                  <i class="bi bi-envelope-open-heart" style="color: red"></i>
                 </div>
                 <h3 class="card-title mb-3">ACCEPT REQUEST</h3>
                 <p class="card-text">
@@ -208,7 +208,7 @@
             <div class="card bg-light text-dark h-100">
               <div class="card-body text-center">
                 <div class="h1 mb-3">
-                  <i class="bi bi-telephone-outbound-fill"></i>
+                  <i class="bi bi-telephone-inbound-fill" style="color: red"></i>
                 </div>
                 <h3 class="card-title mb-3">GET A JOB</h3>
                 <p class="card-text">
@@ -230,8 +230,8 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod,
           ducimus.
         </p>
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-2">
             <div class="card bd-light">
               <div class="card-body text-center">
                 <img
@@ -253,7 +253,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6 col-lg-2">
             <div class="card bd-light">
               <div class="card-body text-center">
                 <img
@@ -275,7 +275,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6 col-lg-2">
             <div class="card bd-light">
               <div class="card-body text-center">
                 <img
@@ -297,7 +297,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6 col-lg-2">
             <div class="card bd-light">
               <div class="card-body text-center">
                 <img
@@ -319,7 +319,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3">
+          <div class="col-md-6 col-lg-2">
             <div class="card bd-light">
               <div class="card-body text-center">
                 <img
@@ -345,13 +345,14 @@
       </div>
     </section>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/script_content.js"></script>
-  </body>
-</html>
 
+
+@endsection
+@section('js')
+<script src="/js/script_content.js"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+crossorigin="anonymous"
+></script>
 @endsection
