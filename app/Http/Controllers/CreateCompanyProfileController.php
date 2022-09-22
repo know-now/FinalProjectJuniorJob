@@ -87,10 +87,16 @@ class CreateCompanyProfileController extends Controller
 
         $company = Company::where('user_id', $user_id)->first();
 
-        $industry_id = $company->industry_id;
-        $company_industry = Industry::find($industry_id);
+        //display company details if it exists or redirect towards company creation
+        if ($company !== null) {
+            $industry_id = $company->industry_id;
+            $company_industry = Industry::find($industry_id);
+            return view('display_company_profile', ['company' => $company, 'company_industry' => $company_industry]);
+        } else
+            return redirect()->route('warning-company');
 
-        return view('display_company_profile', ['company' => $company, 'company_industry' => $company_industry]);
+
+        
     }
 
     /**

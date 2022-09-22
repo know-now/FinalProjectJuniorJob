@@ -27,6 +27,9 @@ Route::get('/', function () {
 Route::get('warning-profile', function(){
     return view('warning.profile');
 })->name('warning-profile');
+Route::get('warning-profile', function(){
+    return view('warning.company');
+})->name('warning-company');
 
 //routes for the candidate/junior profile
 Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile/create');
