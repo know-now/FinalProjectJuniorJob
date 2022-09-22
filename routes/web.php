@@ -35,18 +35,10 @@ Route::get('/company', [CreateCompanyProfileController::class, 'index'])->name('
 Route::post('/company', [CreateCompanyProfileController::class, 'store'])->name('company');
 Route::get('/company/{name}', [CreateCompanyProfileController::class, 'show'])->name('company');
 
-/*Route::get('/company', function () {
-    return view('company');
-});*/
-
 Route::get('/junior', function () {
     return view('junior');
 });
 Route::get('/quotes', [ApiController::class, 'list']);
-//     $response = Http::withOptions(["verify" => false])->get('https://zenquotes.io/api/quotes?format=json');
-
-//     dd($response->body());
-// });
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
@@ -76,10 +68,6 @@ Route::get('/adem', function () {
 Route::get('/junior_details', function () {
     return view('junior_details');
 })->middleware(['auth'])->name('junior_details');
-
-Route::get('/grade', function () {
-    return view('grade');
-})->middleware(['auth'])->name('grade');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);

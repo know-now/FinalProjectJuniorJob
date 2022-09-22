@@ -13,6 +13,7 @@
                 </div>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi maxime sunt facilis minima consectetur natus blanditiis laborum voluptatibus pariatur earum porro tenetur, harum expedita? Distinctio praesentium at aut totam maiores.</p>
                 <hr>
+                <x-quote />
                 <nav>
                     <li><a href="/adem">Work permit in ADEM</a></li>
                     <li><a href="/dashboard">My account</a></li>
@@ -26,7 +27,7 @@
                 </nav>
             </div>
         </div>
-       
+
     </div>
 
 </x-app-layout>

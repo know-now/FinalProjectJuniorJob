@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Http;
 
 class Quote extends Component
 {
@@ -11,11 +12,10 @@ class Quote extends Component
      *
      * @return void
      */
-    public $title;
-    public function __construct($data)
+    public function __construct()
     {
         //
-        $this->title = $data;
+
     }
 
     /**
@@ -24,7 +24,8 @@ class Quote extends Component
      * @return \Illuminate\Contracts\View\View|\Closure|string
      */
     public function render()
-    {
-        return view('components.quote');
+    {   $quotes=Http::get('https://zenquotes.io/api/random')->json();
+        return view('components.quote', ['quotes'=>$quotes]);
+        }
     }
-}
+

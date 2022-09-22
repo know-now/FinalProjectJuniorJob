@@ -1,11 +1,12 @@
 <div>
-    <h3>{{ $title }}</h3>
 
 
-
-
-
-
-
-   <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
+    @foreach ($quotes as $item)
+        <blockquote>&ldquo; {{ $item['q'] }} &rdquo; &mdash; <footer> {{ $item['a'] }}</footer>
+        </blockquote>
+    @endforeach
+    <!-- Well begun is half done. - Aristotle -->
 </div>
+<style>
+    
+</style>
