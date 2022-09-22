@@ -59,10 +59,6 @@ Route::get('/adem', function () {
     return view('adem');
 })->middleware(['auth'])->name('adem');
 
-Route::get('/grade', function () {
-    return view('grade');
-})->middleware(['auth'])->name('grade');
-
 Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);
     Route::get('create', [MessagesController::class, 'create'])->name('.create');
