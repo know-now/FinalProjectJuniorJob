@@ -4,8 +4,9 @@
     <ul>
          @foreach ($contests as $contest)
 <li>
-  <p> <b> {{ $contest['name'] }}</b></p>
-  {{-- <p>{{ $contest['description'] }}</p> --}}
+  <p> <b> {{ $contest["name"] }}</b></p>
+  <p>{{ $contest["url"] }}</p>
+  <p>Start: {{ $contest["start_time"]  }}</p>
 </li>
     @endforeach
 </ul>
