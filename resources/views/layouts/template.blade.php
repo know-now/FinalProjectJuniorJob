@@ -17,29 +17,49 @@
     <link rel="stylesheet" href="css/profile.css">
     <title>@yield('title')</title>
     @yield('css')
-    
+
 </head>
 
 <body>
     @if (Auth::user())
-        <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="#"
-                class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-                <img src="assets/find_your_junior_black_sm.png" class="img-fluid col-sm-4" alt="">
-                <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
-            </a>
-
-            <ul class="nav nav-pills align-items-center">
-                <li class="nav-item"><a href="adem" class="nav-link">Work permit in ADEM</a></li>
-                <li class="nav-item"><a href="dashboard" class="nav-link">My account</a></li>
-                <li class="nav-item"><a href="junior_profile" class="nav-link">Junior profile</a></li>
-                <li class="nav-item"><a href="junior" class="nav-link">Junior Homepage</a></li>
-                <li class="nav-item"><a href="skills" class="nav-link">Search a Junior</a></li>
-                <li><a href="/">Company Homepage</a></li>
-                <li class="nav-item"><a href="soft_skills" class="nav-link">Soft Skills</a></li>
-                <li class="nav-item"><a href="grade" class="nav-link">Test Results</a></li>
-                <li class="nav-item"><a href="junior_details" class="nav-link">Info about Junior</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg py-3 mb-4 border-bottom">
+            <div class="container-fluid">
+                <div class="row">
+                    <a href="/"
+                        class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
+                        <img src="assets/find_your_junior_black_sm.png" class="img-fluid col-sm-4" alt="">
+                        <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="adem">Work permit in ADEM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile/{id}">My account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#search">Search a Junior</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="soft_skills">Soft Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="grade">Test Results</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dashboard">Temp Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
         </nav>
     @else
         <nav>

@@ -49,7 +49,7 @@ class CreateCandidateProfileController extends Controller
 
         //get input array
         $skills = $request->skills;
-        $languages= $request->languages;
+        $languages = $request->languages;
 
         $request->validate([
             'first_name' => 'required|min:3|max:30',
@@ -65,7 +65,7 @@ class CreateCandidateProfileController extends Controller
         $candidate = new Candidate;
 
         Schema::disableForeignKeyConstraints();
-  
+
         $candidate = Candidate::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -97,7 +97,7 @@ class CreateCandidateProfileController extends Controller
                 'skill_id' => $skill,
             ]);
         }
-        
+
         Schema::enableForeignKeyConstraints();
 
         // Save it in the DB and check if it worked
@@ -115,19 +115,21 @@ class CreateCandidateProfileController extends Controller
     {
         $user_id = Auth::id();
         $candidate = Candidate::where('user_id', $user_id)->first();
+        if ($candidate !== null) { 
+            //storing the values of the received objects into variables we'll use later
+            $role_id = $candidate->role_id;
+            $candidate_id = $candidate->id;
 
-        //storing the values of the received objects into variables we'll use later
-        $role_id = $candidate->role_id;
-        $candidate_id = $candidate->id;
+            //retrieving the role, language and skill values from their respective tablesds
+            $candidate_role = Role::find($role_id);
+            $candidate_language = Candidate::find($candidate_id)->languages;
+            $candidate_skill = Candidate::find($candidate_id)->skills;
 
-        //retrieving the role, language and skill values from their respective tables
-        $candidate_role = Role::find($role_id);
-        $candidate_language = Candidate::find($candidate_id)->languages;
-        $candidate_skill = Candidate::find($candidate_id)->skills;
-
-        //this will display the candidates who have this role usefol for the filtering later
-        //$candidate_role = Role::find($role_id)->candidate;
-        return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill]);
+            //this will display the candidates who have this role usefol for the filtering later
+            //$candidate_role = Role::find($role_id)->candidate;
+            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill]);
+        } else
+            return redirect()->route('warning-profile');
     }
 
     /**
