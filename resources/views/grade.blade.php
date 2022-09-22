@@ -1,3 +1,4 @@
+
 @extends('layouts.template')
 
 @section('content')
@@ -7,5 +8,7 @@
 <button type="button">No 😕</button>
 
 <h4>If your Junior is skillful enough, you will be redirected to a page with full information about your Junior.</h4>
-
+<x-quote data="users Component Header"/>
 @endsection
+
+

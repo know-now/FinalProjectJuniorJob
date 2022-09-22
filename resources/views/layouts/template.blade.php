@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <title>@yield('title')</title>
     @yield('css')
-    
+
 </head>
 
 <body>
@@ -65,6 +65,7 @@
 
     <div class="content">
         @yield('content')
+        @yield('quotes')
     </div>
 
 
