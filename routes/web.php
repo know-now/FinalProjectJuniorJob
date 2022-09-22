@@ -40,7 +40,6 @@ Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])-
 Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
 Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
 
-
 Route::get('/soft_skills', function () {
     return view('soft_skills');
 })->middleware(['auth']);
