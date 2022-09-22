@@ -121,8 +121,6 @@ class CreateCandidateProfileController extends Controller
             //storing the values of the received objects into variables we'll use later
             $role_id = $candidate->role_id;
             $candidate_id = $candidate->id;
-            $candidate_type = User::select('type')->where('id', $user_id)->get();
-            //dd($candidate_type);
 
             //retrieving the role, language and skill values from their respective tablesds
             $candidate_role = Role::find($role_id);

@@ -27,19 +27,17 @@ Route::get('/', function () {
 Route::get('warning-profile', function(){
     return view('warning.profile');
 })->name('warning-profile');
-Route::get('warning-profile', function(){
-    return view('warning.company');
-})->name('warning-company');
+
 
 //routes for the candidate/junior profile
-Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile/create');
-Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
-Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('profile');
+Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('/profile/create');
+Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('/profile');
+Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('/profile');
 
 //routes for the company profile
-Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company/create');
-Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
-Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
+Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('/company/create');
+Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('/company');
+Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('/company');
 
 
 Route::get('/soft_skills', function () {

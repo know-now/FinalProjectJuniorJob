@@ -26,6 +26,15 @@ class User extends Authenticatable
         'password',
         'type',
     ];
+    
+    public function candidates()
+    {
+        return $this->HasMany(Candidate::class);
+    }
+    public function companies()
+    {
+        return $this->HasMany(Company::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
