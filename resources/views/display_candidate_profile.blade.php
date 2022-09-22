@@ -8,6 +8,7 @@
         <div class="container ">
             <div class="row d-flex justify-content-center shadow-sm bg-body rounded">
                     <div class="col-md-12 col-lg-6">
+                        <h2> Welcome <span class="text-danger">{{ $candidate->first_name }}</span></h2>
                         <div class="row">
                             <div class="col-sm-4" style="background-color:rgb(201, 199, 199);">
                                 <div class="card-block text-center text-white">
@@ -77,9 +78,7 @@
                                     </div>
                                 </div>
                              
-                                <ul class="list-unstyled d-flex justify-content-start mt-4">
-                                    <li></li>
-                                </ul>
+                        
                             </div>
                         </div>
                     </div>
