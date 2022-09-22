@@ -120,7 +120,7 @@ class CreateCandidateProfileController extends Controller
             $role_id = $candidate->role_id;
             $candidate_id = $candidate->id;
 
-            //retrieving the role, language and skill values from their respective tables
+            //retrieving the role, language and skill values from their respective tablesds
             $candidate_role = Role::find($role_id);
             $candidate_language = Candidate::find($candidate_id)->languages;
             $candidate_skill = Candidate::find($candidate_id)->skills;
