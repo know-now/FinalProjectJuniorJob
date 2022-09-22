@@ -72,7 +72,7 @@ class CreateCompanyProfileController extends Controller
 
         // Save it in the DB and check if it worked
         if ($company->save())
-            return redirect()->route('company', ['name' => $company->company_name]);
+            return redirect()->route('company');
     }
 
     /**
@@ -81,7 +81,7 @@ class CreateCompanyProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         $user_id = Auth::id();
 

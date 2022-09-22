@@ -47,10 +47,10 @@ nav [class*="fa-"]:hover {
     color: white;
     padding: 0.5rem;
     text-decoration: none;
+    width: 100px;
+    text-align: center;
 }
 
-.button:hover {
-    color: black;
-    background-color: #3db0da;
+/* .button:hover {
     box-shadow: rgba(93, 14, 21, 5) 0px 3px 8px;
-}
+} */
