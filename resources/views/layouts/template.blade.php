@@ -65,7 +65,7 @@
 
     <div class="content">
         @yield('content')
-        @yield('quotes')
+       
     </div>
 
 
