@@ -11,6 +11,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="/css/footer_style.css">
     <link rel="stylesheet" href="/css/navbar_style.css">
     <link rel="stylesheet" href="/css/content_style.css">
@@ -109,8 +110,8 @@
                     <div class="footer-heading">
                         <h3>Contact</h3>
                     </div>
-                    <p>info@findyourjunior.io</p>
-                    <p>+352 123 456 789</p>
+                    <p><a href="mailto:find.your.junior@gmail.com">find.your.junior@gmail.com</a></p>
+                    <p><a href=""> +352 123 456 789</a></p>
 
                     <ul>
                         <li><a href=""><span class="fab fa-facebook" aria-hidden="true"></span> <span

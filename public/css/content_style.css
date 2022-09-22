@@ -32,3 +32,25 @@ div.temp-navbar {
     display: flex;
     flex-direction: row;
 }
+
+/* .container-fluid a {
+    text-decoration: none !important;
+    color: white;
+} */
+
+.text-underline-hover {
+    text-decoration: none;
+}
+
+.text-underline-hover:hover {
+    text-decoration: underline;
+}
+
+a:not([class]) {
+    text-decoration: none;
+}
+
+a:not([class]):hover {
+    text-decoration: underline;
+}
+
