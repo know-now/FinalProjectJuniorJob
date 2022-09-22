@@ -31,7 +31,29 @@ div.temp-navbar {
     background-color: rgb(250, 250, 250);
     display: flex;
     flex-direction: row;
+
 }
+
+
+.bi-search:hover{
+    display: inline-block;
+    font-size: 0px;
+    cursor: pointer;
+    margin: 15px 30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+
+
+
+
+
 
 /* .container-fluid a {
     text-decoration: none !important;
