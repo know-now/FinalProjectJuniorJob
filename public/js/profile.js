@@ -26,4 +26,3 @@ function changeActiveState(btn) {
     }
     steps[index].classList.add("active");
 }
-

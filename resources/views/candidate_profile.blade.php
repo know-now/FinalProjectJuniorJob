@@ -1,5 +1,7 @@
 @extends('layouts.template')
-
+@section('css')
+    <link rel="stylesheet" href="{{asset('/css/profile.css')}}">
+@endsection
 @section('content')
     <div class="container">
         <form method="post" class="py-4 m-auto w-75">
@@ -137,5 +139,5 @@
     </div>
 @endsection
 @section('js')
-    <script src="js/profile.js"></script>
+    <script src="{{ asset('/js/profile.js') }}"></script>
 @endsection

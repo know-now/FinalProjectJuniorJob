@@ -102,7 +102,7 @@ class CreateCandidateProfileController extends Controller
 
         // Save it in the DB and check if it worked
         if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
-            return redirect()->route('profile', ['name' => $candidate->first_name]);
+            return redirect()->route('profile');
     }
 
     /**
@@ -111,7 +111,7 @@ class CreateCandidateProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         $user_id = Auth::id();
         $candidate = Candidate::where('user_id', $user_id)->first();
