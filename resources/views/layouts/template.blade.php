@@ -27,7 +27,8 @@
                 <div class="row">
                     <a href="/"
                         class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-                        <img src="{{asset('assets/find_your_junior_black_sm.png')}}" class="img-fluid col-sm-4" alt="">
+                        <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-4"
+                            alt="">
                         <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -40,17 +41,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/adem">Work permit in ADEM</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile">My account</a>
-                        </li>
+                        @if ($user->type === 'company')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/company">My account</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">My account</a>
+                            </li>
+                        @endif
+
                         <li class="nav-item">
                             <a class="nav-link" href="#search">Search a Junior</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/soft_skills">Soft Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/grade">Test Results</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Temp Dashboard</a>

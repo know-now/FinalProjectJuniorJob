@@ -12,6 +12,10 @@ class Company extends Model
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function industries()
     {
         return $this->belongsTo(Industry::class);

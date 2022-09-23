@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Language;
+use App\Models\User;
+
 
 
 class CreateCandidateProfileController extends Controller
@@ -140,7 +142,7 @@ class CreateCandidateProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
