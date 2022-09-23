@@ -11,7 +11,7 @@
 }
 
 .btn:hover {
-    border-color: red;
+    border-color:  #EE2436;
 }
 
 .btn-Iam {
@@ -76,3 +76,35 @@ a:not([class]):hover {
     text-decoration: underline;
 }
 
+
+.blockquote-custom {
+    position: relative;
+    font-size: 1.1rem;
+  }
+  
+  .blockquote-custom-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border:solid #00a2df;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -25px;
+    left: 50px;
+  }
+
+/* 
+  .container-blockquote {
+    position: relative;
+    
+  }
+  .blockquote{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+  } */
