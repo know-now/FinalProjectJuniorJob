@@ -58,16 +58,14 @@
                             <a class="nav-link" href="/soft_skills">Soft Skills</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Temp Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/messages">Messenger</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Log Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('messages')}}">Messages</a>
                         </li>
                     </ul>
                 </div>
+            </div>
         </nav>
     @else
         <nav>

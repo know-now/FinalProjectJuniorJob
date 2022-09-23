@@ -77,7 +77,9 @@
                                     <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                             </div>
-
+                            <div>
+                                {{$cv}}
+                            </div>
                             <ul class="list-unstyled d-flex justify-content-start mt-4">
                                 <li></li>
                             </ul>
