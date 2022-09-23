@@ -45,7 +45,6 @@ Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->mi
 
 Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('/company');
 
-
 Route::get('/soft_skills', function () {
     return view('soft_skills');
 })->middleware(['auth']);
