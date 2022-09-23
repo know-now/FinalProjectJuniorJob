@@ -42,6 +42,7 @@ class Candidate extends Model
         "linkedin",
         "github",
         "education",
+        "cv",
         "role_id",
         "user_id",
     ];
