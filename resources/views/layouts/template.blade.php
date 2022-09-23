@@ -22,22 +22,22 @@
 
 <body>
     @if (Auth::user())
-        <nav class="navbar navbar-expand-lg py-3 mb-4 border-bottom">
+        <nav class="navbar navbar-expand-lg  mb-4">
             <div class="container-fluid">
-                <div class="row">
+               
                     <a href="/"
                         class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-                        <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-4"
-                            alt="">
-                        <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
+                        <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-8"
+                            alt="" style="">
+                        
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                </div>
+               
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/adem">Work permit in ADEM</a>
                         </li>
