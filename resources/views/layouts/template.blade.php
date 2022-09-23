@@ -24,24 +24,50 @@
 
 <body>
     @if (Auth::user())
-        <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="#"
-                class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-                <img src="assets/find_your_junior_black_sm.png" class="img-fluid col-sm-4" alt="">
-                <span class="fs-4 col-sm-6">FIND YOUR JUNIOR</span>
-            </a>
+        <nav class="navbar navbar-expand-lg  mb-4">
+            <div class="container-fluid">
+               
+                    <a href="/"
+                        class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
+                        <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-8"
+                            alt="" style="">
+                        
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+               
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adem">Work permit in ADEM</a>
+                        </li>
+                        @if ($user->type === 'company')
+                            <li class="nav-item">
+                                <a class="nav-link" href="/company">My account</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/profile">My account</a>
+                            </li>
+                        @endif
 
-            <ul class="nav nav-pills align-items-center">
-                <li class="nav-item"><a href="adem" class="nav-link">Work permit in ADEM</a></li>
-                <li class="nav-item"><a href="dashboard" class="nav-link">My account</a></li>
-                <li class="nav-item"><a href="junior_profile" class="nav-link">Junior profile</a></li>
-                <li class="nav-item"><a href="junior" class="nav-link">Junior Homepage</a></li>
-                <li class="nav-item"><a href="skills" class="nav-link">Search a Junior</a></li>
-                <li><a href="/">Company Homepage</a></li>
-                <li class="nav-item"><a href="soft_skills" class="nav-link">Soft Skills</a></li>
-                <li class="nav-item"><a href="grade" class="nav-link">Test Results</a></li>
-                <li class="nav-item"><a href="junior_details" class="nav-link">Info about Junior</a></li>
-            </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#search">Search a Junior</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/soft_skills">Soft Skills</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log Out</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('messages')}}">Messages</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     @else
         <nav>
@@ -67,6 +93,7 @@
 
     <div class="content">
         @yield('content')
+
     </div>
 
 

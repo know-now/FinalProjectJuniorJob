@@ -10,8 +10,9 @@ use App\Models\Skill;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Storage;
 use App\Models\Language;
-
+use App\Models\User;
 
 class CreateCandidateProfileController extends Controller
 {
@@ -23,6 +24,7 @@ class CreateCandidateProfileController extends Controller
      */
     public function index()
     {
+
         return view('candidate_profile');
     }
 
@@ -44,6 +46,7 @@ class CreateCandidateProfileController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request);
         //Retrieve the id from the session
         $user_id = Auth::id();
 
@@ -58,14 +61,29 @@ class CreateCandidateProfileController extends Controller
             'linkedin' => 'required|min:3',
             'github' => 'required|min:3',
             'education' => 'required|min:1|max:20',
+            'cv' => 'required',
             'role_id' => 'required|min:1|max:20',
+            'languages' => 'required',
+            'skills' => 'required',
         ]);
+
+
+        //storing the CV on the local disk
+        $cv = $request->file('cv');
+        $file_name = $cv->getClientOriginalName();
+
+        if (!empty($cv)) {
+            $path = public_path() . '/uploads/';
+            $cv->move($path, $file_name);
+        } else {
+            return redirect()->back()->withInput();
+        }
 
         // Create a Candidate object
         $candidate = new Candidate;
 
         Schema::disableForeignKeyConstraints();
-
+        
         $candidate = Candidate::create([
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
@@ -73,6 +91,7 @@ class CreateCandidateProfileController extends Controller
             'linkedin' => $request->linkedin,
             'github' => $request->github,
             'education' => $request->education,
+            'cv' => $file_name,
             'role_id' => $request->role_id,
             'user_id' => $user_id,
         ]);
@@ -102,7 +121,7 @@ class CreateCandidateProfileController extends Controller
 
         // Save it in the DB and check if it worked
         if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
-            return redirect()->route('profile', ['name' => $candidate->first_name]);
+            return redirect()->route('/profile');
     }
 
     /**
@@ -111,11 +130,11 @@ class CreateCandidateProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         $user_id = Auth::id();
         $candidate = Candidate::where('user_id', $user_id)->first();
-        if ($candidate !== null) { 
+        if ($candidate !== null) {
             //storing the values of the received objects into variables we'll use later
             $role_id = $candidate->role_id;
             $candidate_id = $candidate->id;
@@ -127,7 +146,13 @@ class CreateCandidateProfileController extends Controller
 
             //this will display the candidates who have this role usefol for the filtering later
             //$candidate_role = Role::find($role_id)->candidate;
-            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill]);
+
+            //retrieve CV and display
+            $candidate_cv = $candidate->cv;
+            $file_path = public_path() . '/uploads/' . $candidate_cv;
+            $uploaded_file = file_get_contents($file_path);
+            //dd($uploaded_file);
+            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill, 'cv' => $uploaded_file]);
         } else
             return redirect()->route('warning-profile');
     }
@@ -140,7 +165,6 @@ class CreateCandidateProfileController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**

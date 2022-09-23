@@ -8,6 +8,7 @@
         "php": "^8.0.2",
         "cmgmyr/messenger": "^2.27",
         "guzzlehttp/guzzle": "^7.2",
+        "joggapp/laravel-google-translate": "^8.1",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7"

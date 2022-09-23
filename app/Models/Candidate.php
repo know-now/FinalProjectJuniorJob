@@ -12,6 +12,10 @@ class Candidate extends Model
     use HasApiTokens, HasFactory, Notifiable;
     public $timestamps = false;
 
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
     public function roles()
     {
         return $this->belongsTo(Role::class);
@@ -38,6 +42,7 @@ class Candidate extends Model
         "linkedin",
         "github",
         "education",
+        "cv",
         "role_id",
         "user_id",
     ];

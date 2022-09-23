@@ -72,7 +72,7 @@ class CreateCompanyProfileController extends Controller
 
         // Save it in the DB and check if it worked
         if ($company->save())
-            return redirect()->route('company', ['name' => $company->company_name]);
+            return redirect()->route('company');
     }
 
     /**
@@ -81,16 +81,21 @@ class CreateCompanyProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         $user_id = Auth::id();
 
         $company = Company::where('user_id', $user_id)->first();
+        //display company details if it exists or redirect towards company creation
+        if ($company !== null) {
+            $industry_id = $company->industry_id;
+            $company_industry = Industry::find($industry_id);
+            return view('display_company_profile', ['company' => $company, 'company_industry' => $company_industry]);
+        } else
+            return redirect()->route('warning-profile');
 
-        $industry_id = $company->industry_id;
-        $company_industry = Industry::find($industry_id);
 
-        return view('display_company_profile', ['company' => $company, 'company_industry' => $company_industry]);
+        
     }
 
     /**
@@ -99,9 +104,9 @@ class CreateCompanyProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        return view('edit_company');
     }
 
     /**
