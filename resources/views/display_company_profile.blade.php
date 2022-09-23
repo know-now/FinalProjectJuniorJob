@@ -19,27 +19,27 @@
                                 <h5 class="mt-4" style="color: #00a2df;">Company Name</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->company_name }}</h6>
-                                    <a href="{{url('/company/edit', $company->name)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Date created</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->date_created }}</h6>
-                                    <a href="{{url('/company/edit', $company->date_created)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Industry</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company_industry->industry }}</h6>
-                                    <a href="{{url('/company/edit', $company->industry)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Number of employees</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->number_of_employees }}</h6>
-                                    <a href="{{url('/company/edit', $company->number_of_employees)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Contacts</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->contact }}</h6>
-                                    <a href="{{url('/company/edit', $company->contact)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi hic, aliquid
                                         laboriosam exercitationem iusto cupiditate dolor, nam officiis et velit est incidunt
                                         in? Labore provident eveniet ducimus dolor ab excepturi.</h6>
-                                    <a href="{{url('/company/edit', $company->description)}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
 
                             </div>
