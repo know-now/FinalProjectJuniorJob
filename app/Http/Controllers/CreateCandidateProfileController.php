@@ -150,9 +150,9 @@ class CreateCandidateProfileController extends Controller
             //retrieve CV and display
             $candidate_cv = $candidate->cv;
             $file_path = public_path() . '/uploads/' . $candidate_cv;
-            $uploaded_file = file_get_contents($file_path);
+            //$uploaded_file = file_get_contents($file_path);
             //dd($uploaded_file);
-            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill, 'cv' => $uploaded_file]);
+            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill, 'cv' => $candidate_cv]);
         } else
             return redirect()->route('warning-profile');
     }
