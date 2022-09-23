@@ -26,6 +26,9 @@
                             <h4 class="text-center">PERSONAL INFORMATION</h4>
                             <hr class="badge-primary w-100" />
                             <div class="row pb-5">
+                            <h4 class="my-5 text-center">PERSONAL INFORMATION</h4>
+                            <hr class="badge-primary w-100" />
+                            <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-3 mb-2 bg-body rounded">
                                     <i class="bi bi-telephone-fill"></i>
                                     <h6 class="text-muted">{{ $candidate->phone_number }}</h6>
@@ -42,9 +45,9 @@
                                     <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                             </div>
-                            <h4 class="text-center ">SKILSS & PREFERENCES</h4>
+                            <h4 class="my-5 text-center ">SKILSS & PREFERENCES</h4>
                             <hr class="badge-primary">
-                            <div class="row pb-5">
+                            <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-3 mb-2 bg-body rounded">
                                     <p class="">Education</p>
                                     <h6 class="text-muted">{{ $candidate->education }}</h6>
@@ -75,6 +78,9 @@
                                 </div>
                             </div>
 
+                            <ul class="list-unstyled d-flex justify-content-start mt-4">
+                                <li></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

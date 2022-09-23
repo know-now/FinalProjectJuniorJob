@@ -30,15 +30,20 @@ Route::get('warning-profile', function(){
     return view('warning.profile');
 })->name('warning-profile');
 
+
 //routes for the candidate/junior profile
-Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile/create');
-Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
-Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('profile');
+Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('/profile/create');
+Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('/profile');
+Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('/profile');
 
 //routes for the company profile
-Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company/create');
-Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
-Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
+Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('/company/create');
+Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('/company');
+
+Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth'])->name('/company/edit');
+//Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth'])->name('/company/edit');
+
+Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('/company');
 
 
 Route::get('/soft_skills', function () {
@@ -57,10 +62,6 @@ Route::get('/soft_skills', function () {
 Route::get('/adem', function () {
     return view('adem');
 })->middleware(['auth'])->name('adem');
-
-Route::get('/grade', function () {
-    return view('grade');
-})->middleware(['auth'])->name('grade');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);
