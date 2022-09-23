@@ -28,6 +28,12 @@ class Contest extends Component
             return view('components.contest', ['contests'=>$contests]);
             }
         }
+    public function timeChange()
+    {
+        {   $contests=Http::get('https://kontests.net/api/v1/all')->json();
+            return view('components.contest', ['contests'=>$contests]);
+            }
+        }
 
     }
 
