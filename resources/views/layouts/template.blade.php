@@ -61,6 +61,9 @@
                             <a class="nav-link" href="/dashboard">Temp Dashboard</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/messages">Messenger</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Log Out</a>
                         </li>
                     </ul>
@@ -90,7 +93,7 @@
 
     <div class="content">
         @yield('content')
-       
+
     </div>
 
 
