@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="/css/footer_style.css">
     <link rel="stylesheet" href="/css/navbar_style.css">
     <link rel="stylesheet" href="/css/content_style.css">
+    <link rel="stylesheet" href="/css/search_style.css">
+    <link rel="stylesheet" href="css/profile.css">
     <title>@yield('title')</title>
     @yield('css')
 

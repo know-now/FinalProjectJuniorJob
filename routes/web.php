@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
@@ -8,6 +7,7 @@ use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\CreateCompanyProfileController;
 use App\Http\Controllers\CreateCandidateProfileController;
+use App\Models\Skill;
 
 
 /*
@@ -71,5 +71,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'
     Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
 });
 
+Route::get('/search', [SkillController::class, 'create']);
+Route::post('/search', [SkillController::class, 'store']);
 
 require __DIR__ . '/auth.php';
