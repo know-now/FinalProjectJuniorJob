@@ -36,34 +36,34 @@ Route::get('warning-profile', function(){
 Route::get('logout',[AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
-//routes for the candidate/junior profile
-Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile-create');
-Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
-Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('profile');
+//all candidate routes
+Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth','user.candidate','create.profile'])->name('profile');
 
-//routes for the company profile
-Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company-create');
-Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
-
-Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth'])->name('company-edit');
-//Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth'])->name('/company/edit');
-
-Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
+Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth','user.candidate'])->name('profile-create');
+Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth','user.candidate'])->name('profile-create');
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
-})->middleware(['auth'])->name('soft_skills');
+})->middleware(['auth', 'user.candidate','create.profile'])->name('soft_skills');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+//all company routes
+Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth','user.company','create.profile'])->name('company');
 
+Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth','user.company'])->name('company-create');
+Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth','user.company'])->name('company-create');
 
+Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth','user.company',])->name('company-edit');
+//Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth', 'user.company])->name('/company/edit');
+
+Route::get('/search', [SkillController::class, 'create'])->middleware(['user.company','create.profile'])->name('search');
+Route::post('/search', [SkillController::class, 'store'])->middleware(['user.company','create.profile'])->name('search');
+
+//global user routes
 Route::get('/adem', function () {
     return view('adem');
 })->middleware(['auth'])->name('adem');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'], function () {
+Route::group(['middleware' => 'auth', 'middleware' => 'create.profile', 'prefix' => 'messages', 'as' => 'messages'], function () {
     Route::get('/', [MessagesController::class, 'index']);
     Route::get('create', [MessagesController::class, 'create'])->name('.create');
     Route::post('/', [MessagesController::class, 'store'])->name('.store');
@@ -72,7 +72,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'
     Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
 });
 
-Route::get('/search', [SkillController::class, 'create'])->name('search');
-Route::post('/search', [SkillController::class, 'store'])->name('search');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth','create.profile'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

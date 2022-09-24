@@ -1,8 +1,6 @@
 @extends('layouts.template')
 
 @section('content')
-
-
     {{-- <x-contest/> --}}
     <section class="py-5 pt-lg-5 bg-light">
         <div class="container">

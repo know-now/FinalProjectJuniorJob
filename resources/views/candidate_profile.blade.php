@@ -124,12 +124,6 @@
                         Other
                     </label>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="languages[5]" {{ old('languages.5') == 6 ? 'checked' : '' }}>
-                    <label class="form-check-label">
-                        Other
-                    </label>
-                </div>
                 <div class="form-check col-sm-12 col-lg-6">
                     {{-- <label for="formFile" class="form-label">Upload your files</label> --}}
                     <input class="form-control" type="file" id="formFile" name="cv" accept=".pdf">
