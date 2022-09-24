@@ -26,44 +26,43 @@
     @if (Auth::user())
         <nav class="navbar navbar-expand-lg  mb-4">
             <div class="container-fluid">
-               
-                    <a href="/"
-                        class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
-                        <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-8"
-                            alt="" style="">
-                        
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-               
+
+                <a href="/"
+                    class="d-flex align-items-center justify-content-sm-evenly mb-3 mb-md-0 me-md-auto text-dark text-decoration-none gap-2">
+                    <img src="{{ asset('assets/find_your_junior_black_sm.png') }}" class="img-fluid col-sm-8"
+                        alt="" style="">
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/adem">Work permit in ADEM</a>
+                            <a class="nav-link" href="{{ route('adem') }}">Work permit in ADEM</a>
                         </li>
                         @if ($user->type === 'company')
                             <li class="nav-item">
-                                <a class="nav-link" href="/company">My account</a>
+                                <a class="nav-link" href="{{ route('company') }}">My account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('search') }}">Search a Junior</a>
                             </li>
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="/profile">My account</a>
+                                <a class="nav-link" href="{{ route('profile') }}">My account</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('soft_skills') }}">Soft Skills</a>
                             </li>
                         @endif
-
                         <li class="nav-item">
-                            <a class="nav-link" href="#search">Search a Junior</a>
+                            <a class="nav-link" href="{{ route('messages') }}">Messages</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/soft_skills">Soft Skills</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Log Out</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('messages')}}">Messages</a>
+                            <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
                         </li>
                     </ul>
                 </div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\SkillController;
 use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\CreateCompanyProfileController;
@@ -14,7 +15,7 @@ use App\Models\Skill;
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
+|s
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!-
@@ -31,33 +32,32 @@ Route::get('warning-profile', function(){
     return view('warning.profile');
 })->name('warning-profile');
 
+//logout
+Route::get('logout',[AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 
 //routes for the candidate/junior profile
-Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('/profile/create');
-Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('/profile');
-Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('/profile');
+Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth'])->name('profile-create');
+Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth'])->name('profile');
+Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middleware(['auth'])->name('profile');
 
 //routes for the company profile
-Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('/company/create');
-Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('/company');
+Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth'])->name('company-create');
+Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth'])->name('company');
 
-Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth'])->name('/company/edit');
+Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth'])->name('company-edit');
 //Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth'])->name('/company/edit');
 
-Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('/company');
+Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middleware(['auth'])->name('company');
 
 Route::get('/soft_skills', function () {
     return view('soft_skills');
-})->middleware(['auth']);
+})->middleware(['auth'])->name('soft_skills');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-
-Route::get('/soft_skills', function () {
-    return view('soft_skills');
-})->middleware(['auth']);
 
 Route::get('/adem', function () {
     return view('adem');
@@ -72,7 +72,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'messages', 'as' => 'messages'
     Route::delete('{thread}', [MessagesController::class, 'destroy'])->name('.destroy');
 });
 
-Route::get('/search', [SkillController::class, 'create']);
-Route::post('/search', [SkillController::class, 'store']);
+Route::get('/search', [SkillController::class, 'create'])->name('search');
+Route::post('/search', [SkillController::class, 'store'])->name('search');
 
 require __DIR__ . '/auth.php';
