@@ -36,7 +36,7 @@
                             </div>
                             <div>
                                 {{-- {{$cv}} --}}
-                                <a target="_blank" href="{{ URL::to('/') }}/uploads/{{$cv}}">Download my CV</a>
+                                <a target="_blank" href="{{ URL::to('/') }}/uploads/{{$cv}}">CV</a>
                             </div>
                             <ul class="list-unstyled d-flex justify-content-start mt-4">
                                 <li></li>
