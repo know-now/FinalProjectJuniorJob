@@ -57,37 +57,37 @@
             <div class="row step gy-2 step-2">
                 <h4>What programming languages do you know?</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="skills[]" {{ old('role_id', $user->role_id) == 1 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="1" name="skills[0]" {{ old('skills.0') == 1 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         HTML
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" name="skills[]" {{ old('role_id', $user->role_id) == 2 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="2" name="skills[1]" {{ old('skills.1') == 2 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Java Script
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" name="skills[]" {{ old('role_id', $user->role_id) == 3 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="3" name="skills[2]" {{ old('skills.2') == 3 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         CSS
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" name="skills[]" {{ old('role_id', $user->role_id) == 4 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="4" name="skills[3]" {{ old('skills.3') == 4 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         PHP
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="skills[]" {{ old('role_id', $user->role_id) == 5 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="5" name="skills[4]" {{ old('skills.4') == 5 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Python
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="6" name="skills[]" {{ old('role_id', $user->role_id) == 6 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="6" name="skills[5]" {{ old('skills.5') == 6 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Java
                     </label>
@@ -95,44 +95,45 @@
 
                 <h4>What languages do you speak?</h4>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="1" name="languages[]" {{ old('role_id', $user->role_id) == 1 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="1" name="languages[0]" {{ old('languages.0') == 1 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         English
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="2" name="languages[]" {{ old('role_id', $user->role_id) == 2 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="2" name="languages[1]" {{ old('languages.1') == 2 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         French
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="3" name="languages[]" {{ old('role_id', $user->role_id) == 3 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="3" name="languages[2]" {{ old('languages.2') == 3 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         German
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="4" name="languages[]" {{ old('role_id', $user->role_id) == 4 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="4" name="languages[3]" {{ old('languages.3') == 4 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Luxembourgish
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="languages[]" {{ old('role_id', $user->role_id) == 5 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="5" name="languages[4]" {{ old('languages.4') == 5 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Other
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="5" name="languages[]" {{ old('role_id', $user->role_id) == 6 ? 'checked' : '' }}>
+                    <input class="form-check-input" type="checkbox" value="5" name="languages[5]" {{ old('languages.5') == 6 ? 'checked' : '' }}>
                     <label class="form-check-label">
                         Other
                     </label>
                 </div>
                 <div class="form-check col-sm-12 col-lg-6">
                     {{-- <label for="formFile" class="form-label">Upload your files</label> --}}
-                    <input class="form-control" type="file" id="formFile" name="cv">
+                    <input class="form-control" type="file" id="formFile" name="cv" accept=".pdf">
+                    <p>File format: .pdf</p>
                 </div>
 
 

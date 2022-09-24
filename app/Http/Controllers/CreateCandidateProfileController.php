@@ -46,14 +46,13 @@ class CreateCandidateProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request);
         //Retrieve the id from the session
         $user_id = Auth::id();
 
         //get input array
         $skills = $request->skills;
         $languages = $request->languages;
-
+        //dd($request);
         $request->validate([
             'first_name' => 'required|min:3|max:30',
             'last_name' => 'required|min:3|max:30',
@@ -61,7 +60,7 @@ class CreateCandidateProfileController extends Controller
             'linkedin' => 'required|min:3',
             'github' => 'required|min:3',
             'education' => 'required|min:1|max:20',
-            'cv' => 'required',
+            'cv' => 'required|mimes:pdf|max:10000',
             'role_id' => 'required|min:1|max:20',
             'languages' => 'required',
             'skills' => 'required',
@@ -96,6 +95,7 @@ class CreateCandidateProfileController extends Controller
             'user_id' => $user_id,
         ]);
 
+        //get id from db
         $candidate_id = $candidate->id;
 
         //insert into candidate_languages table depending on checked boxes
@@ -119,7 +119,6 @@ class CreateCandidateProfileController extends Controller
 
         Schema::enableForeignKeyConstraints();
 
-        // Save it in the DB and check if it worked
         if ($candidate->save() && $candidate_language->save() && $candidate_skill->save())
             return redirect()->route('/profile');
     }
@@ -134,6 +133,7 @@ class CreateCandidateProfileController extends Controller
     {
         $user_id = Auth::id();
         $candidate = Candidate::where('user_id', $user_id)->first();
+
         if ($candidate !== null) {
             //storing the values of the received objects into variables we'll use later
             $role_id = $candidate->role_id;
@@ -147,12 +147,10 @@ class CreateCandidateProfileController extends Controller
             //this will display the candidates who have this role usefol for the filtering later
             //$candidate_role = Role::find($role_id)->candidate;
 
-            //retrieve CV and display
+            //retrieve CV
             $candidate_cv = $candidate->cv;
-            $file_path = public_path() . '/uploads/' . $candidate_cv;
-            $uploaded_file = file_get_contents($file_path);
-            //dd($uploaded_file);
-            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill, 'cv' => $uploaded_file]);
+
+            return view('display_candidate_profile', ['candidate' => $candidate, 'candidate_role' => $candidate_role, 'candidate_language' => $candidate_language, 'candidate_skill' => $candidate_skill, 'cv' => $candidate_cv]);
         } else
             return redirect()->route('warning-profile');
     }
