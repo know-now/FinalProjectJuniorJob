@@ -52,8 +52,8 @@ Route::get('/company', [CreateCompanyProfileController::class, 'show'])->middlew
 Route::get('/company/create', [CreateCompanyProfileController::class, 'index'])->middleware(['auth','user.company'])->name('company-create');
 Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])->middleware(['auth','user.company'])->name('company-create');
 
-Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth','user.company',])->name('company-edit');
-//Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth', 'user.company])->name('/company/edit');
+Route::get('/company/edit/{details}', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth','user.company',])->name('company-edit');
+Route::post('/company/edit/{details}', [CreateCompanyProfileController::class, 'update'])->middleware(['auth', 'user.company'])->name('company-edit');
 
 Route::get('/search', [SkillController::class, 'create'])->middleware(['user.company','create.profile'])->name('search');
 Route::post('/search', [SkillController::class, 'store'])->middleware(['user.company','create.profile'])->name('search');
