@@ -24,7 +24,7 @@
 
 <body>
     @if (Auth::user())
-        <nav class="navbar navbar-expand-lg  mb-4">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
 
                 <a href="/"
@@ -54,8 +54,14 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile') }}">My account</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('soft_skills') }}">Soft Skills</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{ route('soft_skills') }}" role="button"
+                                    data-bs-toggle="dropdown">Soft Skills</a>
+                                <ul class="dropdown-menu dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#challenge">Find a challange</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#cv">How to write CV</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#question">Questions & Suggestions</a></li>
+                                </ul>
                             </li>
                         @endif
                         <li class="nav-item">

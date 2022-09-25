@@ -32,13 +32,8 @@
                                 </blockquote>
 
                             </div>
-                            <div>
-                                {{-- {{$cv}} --}}
-                                <a target="_blank" href="{{ URL::to('/') }}/uploads/{{$cv}}">CV</a>
-                            </div>
-                            <ul class="list-unstyled d-flex justify-content-start mt-4">
-                                <li></li>
-                            </ul>
+
+
 
                         </div>
                         <div class="col-sm-6 bg-white round-right">
@@ -101,8 +96,19 @@
                                         </h6>
                                         <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
+                                    <div class="mt-5">
+                                        {{-- {{$cv}} --}}
+
+                                        <button type="button" class="btn btn-transparent btn-lg btn-CV text-light mb-3 px-5">
+                                            <a target="_blank"
+                                                href="{{ URL::to('/') }}/uploads/{{ $cv }}">CV</a>
+                                        </button>
+
+                                    </div>
+
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
