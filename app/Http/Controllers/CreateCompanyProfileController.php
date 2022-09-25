@@ -121,20 +121,25 @@ class CreateCompanyProfileController extends Controller
      */
     public function update(Request $request)
     {
+        //get companies table
+        $company = Auth::user()->companies->first();
+
         $data = $request->except('_token');
+
         $name = array_key_exists('company_name', $data);
         $contact = array_key_exists('contact', $data);
         $description = array_key_exists('description', $data);
         $date = array_key_exists('date', $data);
         $employees = array_key_exists('employees', $data);
         $industry = array_key_exists('industry', $data);
-        //dd($data);
+
+        //Depending on the url clicked a different edit form will be displayed aka the field that the user wants to edit
         if ($name) {
 
             $request->validate([
                 'company_name' => 'required|min:3',
             ]);
-            $new_name = Auth::user()->companies->first()->update(['company_name' => $request->company_name]);
+            $new_name = $company->update(['company_name' => $request->company_name]);
             if (!$new_name)
                 return redirect()->back();
             else
@@ -145,7 +150,7 @@ class CreateCompanyProfileController extends Controller
             $request->validate([
                 'contact' => 'required|numeric',
             ]);
-            $new_contact = Auth::user()->companies->first()->update(['contact' => $request->contact]);
+            $new_contact = $company->update(['contact' => $request->contact]);
             if (!$new_contact)
                 return redirect()->back();
             else
@@ -156,7 +161,7 @@ class CreateCompanyProfileController extends Controller
             $request->validate([
                 'description' => 'required|min:3|max:250',
             ]);
-            $new_description = Auth::user()->companies->first()->update(['description' => $request->description]);
+            $new_description = $company->update(['description' => $request->description]);
             if (!$new_description)
                 return redirect()->back();
             else
@@ -167,7 +172,7 @@ class CreateCompanyProfileController extends Controller
             $request->validate([
                 'date' => 'required',
             ]);
-            $new_date = Auth::user()->companies->first()->update(['date_created' => $request->date]);
+            $new_date = $company->update(['date_created' => $request->date]);
             if (!$new_date)
                 return redirect()->back();
             else
@@ -178,18 +183,18 @@ class CreateCompanyProfileController extends Controller
             $request->validate([
                 'employees' => 'required|numeric',
             ]);
-            $new_employees = Auth::user()->companies->first()->update(['number_of_employees' => $request->employees]);
+            $new_employees = $company->update(['number_of_employees' => $request->employees]);
             if (!$new_employees)
                 return redirect()->back();
             else
                 return redirect()->route('company');
 
         } else if ($industry) {
-            
+
             $request->validate([
                 'industry' => 'required',
             ]);
-            $new_industry = Auth::user()->companies->first()->update(['industry_id' => $request->industry]);
+            $new_industry = $company->update(['industry_id' => $request->industry]);
             if (!$new_industry)
                 return redirect()->back();
             else

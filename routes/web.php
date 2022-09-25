@@ -42,6 +42,9 @@ Route::get('/profile', [CreateCandidateProfileController::class, 'show'])->middl
 Route::get('/profile/create', [CreateCandidateProfileController::class, 'index'])->middleware(['auth','user.candidate'])->name('profile-create');
 Route::post('/profile/create', [CreateCandidateProfileController::class, 'store'])->middleware(['auth','user.candidate'])->name('profile-create');
 
+Route::get('/profile/edit/{profile}', [CreateCandidateProfileController::class, 'edit'])->middleware(['auth','user.candidate',])->name('candidate-edit');
+Route::post('/profile/edit/{profile}', [CreateCandidateProfileController::class, 'update'])->middleware(['auth', 'user.candidate'])->name('candidate-edit');
+
 Route::get('/soft_skills', function () {
     return view('soft_skills');
 })->middleware(['auth', 'user.candidate','create.profile'])->name('soft_skills');

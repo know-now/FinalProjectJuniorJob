@@ -52,7 +52,7 @@ class CreateCandidateProfileController extends Controller
         //get input array
         $skills = $request->skills;
         $languages = $request->languages;
-        //dd($request);
+        dd($request);
         $request->validate([
             'first_name' => 'required|min:3|max:30',
             'last_name' => 'required|min:3|max:30',
@@ -133,7 +133,7 @@ class CreateCandidateProfileController extends Controller
     {
         $user_id = Auth::id();
         $candidate = Candidate::where('user_id', $user_id)->first();
-        
+
         //storing the values of the received objects into variables we'll use later
         $role_id = $candidate->role_id;
         $candidate_id = $candidate->id;
@@ -158,8 +158,23 @@ class CreateCandidateProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
+        $candidate = Auth::user()->candidates->first();
+
+        $first_name = $candidate->first_name;
+        $last_name = $candidate->last_name;
+        $phone_number = $candidate->phone_number;
+        $linkedin = $candidate->linkedin;
+        $github = $candidate->github;
+        $education = $candidate->education;
+        $cv = $candidate->cv;
+        $role = $candidate->role_id;
+        $role = Role::find($role)->role;
+
+        $languages = $candidate->languages;
+        $skills = $candidate->skills;
+        return view('edit_profile', ['first_name' => $first_name, 'last_name' => $last_name, 'phone_number' => $phone_number, 'linkedin' => $linkedin, 'github' => $github, 'education' => $education, 'cv' => $cv, 'role' => $role, 'skills' => $skills, 'languages' => $languages]);
     }
 
     /**
@@ -169,9 +184,146 @@ class CreateCandidateProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //retrieve candidates with skills and languages
+        $candidate = Auth::user()->candidates->first();
+        $candidate_skills = $candidate->skills;
+        $candidate_languages = $candidate->skills;
+        $data = $request->except('_token');
+        $first_name = array_key_exists('first_name', $data);
+        $last_name = array_key_exists('last_name', $data);
+        $phone_number = array_key_exists('phone_number', $data);
+        $linkedin = array_key_exists('linkedin', $data);
+        $github = array_key_exists('github', $data);
+        $education = array_key_exists('education', $data);
+        $cv = array_key_exists('cv', $data);
+        $role = array_key_exists('role', $data);
+        $skills = array_key_exists('skills', $data);
+        $languages = array_key_exists('languages', $data);
+
+        // $request->validate([
+        //     'languages' => 'required',
+        //     'skills' => 'required',
+        // ]);
+
+        //different edit inputs will be displayed depending on the url clicked
+        if ($first_name && $last_name) {
+
+            $request->validate([
+                'first_name' => 'required|min:3|max:30',
+                'last_name' => 'required|min:3|max:30',
+            ]);
+            $new_first_name = $candidate->update(['first_name' => $request->first_name]);
+            $new_last_name = $candidate->update(['last_name' => $request->last_name]);
+            if (!$new_first_name && !$new_last_name)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($phone_number) {
+
+            $request->validate([
+                'phone_number' => 'required|numeric',
+            ]);
+            $new_phone_number = $candidate->update(['phone_number' => $request->phone_number]);
+            if (!$new_phone_number)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($linkedin) {
+
+            $request->validate([
+                'linkedin' => 'required|min:3',
+            ]);
+            $new_linkedin = $candidate->update(['linkedin' => $request->linkedin]);
+            if (!$new_linkedin)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($github) {
+
+            $request->validate([
+                'github' => 'required|min:3',
+            ]);
+            $new_github = $candidate->update(['github' => $request->github]);
+            if (!$new_github)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($education) {
+
+            $request->validate([
+                'education' => 'required|min:1|max:20',
+            ]);
+            $new_education = $candidate->update(['education' => $request->education]);
+            if (!$new_education)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($cv) {
+
+            $request->validate([
+                'cv' => 'required|mimes:pdf|max:10000',
+            ]);
+
+            $cv = $request->file('cv');
+            $file_name = $cv->getClientOriginalName();
+
+            if (!empty($cv)) {
+                $path = public_path() . '/uploads/';
+                $cv->move($path, $file_name);
+            } else {
+                return redirect()->back()->withInput();
+            }
+
+            $new_cv = $candidate->update(['cv' => $file_name]);
+
+            if (!$new_cv)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($role) {
+            $request->validate([
+                'role' => 'required|min:1|max:20',
+            ]);
+            $new_role = $candidate->update(['role_id' => $request->role]);
+            if (!$new_role)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($skills) {
+            $request->validate([
+                'skills' => 'required',
+            ]);
+
+            // foreach($request->skills as $insert_skill){
+            //     var_dump($insert_skill);
+            // }
+            foreach ($candidate_skills as $skills) {
+                //$new_skills = $skills->pivot->skill_id->update(['skill_id' => $request->skills]);
+                foreach ($request->skills as $new_skill) {
+                    $new_skills = $skills->pivot->update(['skill_id' => $new_skill]);
+                    dd($new_skill);
+                }
+            }
+
+            if (!$new_skills)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        } else if ($languages) {
+            $request->validate([
+                'languages' => 'required',
+            ]);
+            foreach ($candidate_languages as $candidate) {
+                $new_skills = $candidate->language->update(['language_id' => $request->skills]);
+            }
+            $new_languages = $candidate->update(['language_id' => $request->languages]);
+            if (!$new_languages)
+                return redirect()->back();
+            else
+                return redirect()->route('profile');
+        }
     }
 
     /**

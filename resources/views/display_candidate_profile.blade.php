@@ -19,7 +19,7 @@
                                 <p>{{ $candidate->first_name }}</p>
                                 <h5 class="mt-4" style="color: #00a2df;">LAST NAME</h5>
                                 <p>{{ $candidate->last_name }}</p>
-                                <a href="#"><i class="bi bi-pencil-square"
+                                <a href="{{url('/profile/edit', ['name'])}}"><i class="bi bi-pencil-square"
                                         style="font-size: 18px; color: #00a2df;"></i></a>
                             </div>
 
@@ -33,8 +33,8 @@
 
                             </div>
                             <div>
-                                {{-- {{$cv}} --}}
                                 <a target="_blank" href="{{ URL::to('/') }}/uploads/{{$cv}}">CV</a>
+                                <a href="{{url('/profile/edit', ['cv'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                             </div>
                             <ul class="list-unstyled d-flex justify-content-start mt-4">
                                 <li></li>
@@ -51,19 +51,19 @@
                                         class="col-sm-12 d-flex justify-content-between shadow-sm py-2 mb-2 bg-body rounded">
                                         <i class="bi bi-telephone-fill"></i>
                                         <h6 class="text-muted">{{ $candidate->phone_number }}</h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['number'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                     <div
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
                                         <i class="bi bi-github"></i>
                                         <h6 class="text-muted">{{ $candidate->github }}</h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['github'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                     <div
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
                                         <i class="bi bi-linkedin"></i>
                                         <h6 class="text-muted">{{ $candidate->linkedin }}</h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['linkedin'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                 </div>
                                 <h4 class="pt-5 text-center ">SKILSS & PREFERENCES</h4>
@@ -73,13 +73,13 @@
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
                                         <p class="">Education</p>
                                         <h6 class="text-muted">{{ $candidate->education }}</h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['education'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                     <div
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
                                         <p class="">Role</p>
                                         <h6 class="text-muted">{{ $candidate_role->role }}</h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['role'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                     <div
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
@@ -89,7 +89,7 @@
                                                 <span>{{ $candidate->skill }}</span>
                                             @endforeach
                                         </h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['skills'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                     <div
                                         class="col-sm-12 d-flex justify-content-between shadow-sm p-2 mb-2 bg-body rounded">
@@ -99,7 +99,7 @@
                                                 <span>{{ $candidate->language }}</span>
                                             @endforeach
                                         </h6>
-                                        <a href="#"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                        <a href="{{url('/profile/edit', ['languages'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                 </div>
                             </div>

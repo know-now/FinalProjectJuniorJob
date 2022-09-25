@@ -36,9 +36,9 @@
                 <div class="col-sm-6">
                     <select name="education" value="{{old('education')}}" class="form-select">
                         <option value="">Choose your Education</option>
-                        <option value="1" {{ old('role_id') == 1 ? 'selected' : '' }}>High School</option>
-                        <option value="2" {{ old('role_id') == 2 ? 'selected' : '' }}>Bachelor's</option>
-                        <option value="3" {{ old('role_id') == 3 ? 'selected' : '' }}>Master's</option>
+                        <option value="1" {{ old('education') == 1 ? 'selected' : '' }}>High School</option>
+                        <option value="2" {{ old('education') == 2 ? 'selected' : '' }}>Bachelor's</option>
+                        <option value="3" {{ old('education') == 3 ? 'selected' : '' }}>Master's</option>
                     </select>
                 </div>
                 <div class="col-sm-6">
