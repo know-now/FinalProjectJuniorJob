@@ -1,3 +1,8 @@
+body{
+    padding-top: 70px;
+    background-color: #f8f9fa;
+
+}
 .candidate {
     background-image: url("/assets/red-background.png");
     background-repeat: no-repeat;
@@ -95,16 +100,14 @@ a:not([class]):hover {
     left: 50px;
   }
 
-/* 
-  .container-blockquote {
-    position: relative;
-    
-  }
-  .blockquote{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: -30px;
-    right: -30px;
-  } */
+ .contest {
+    background: rgb(238,36,54);
+    background: linear-gradient(113deg, rgba(238,36,54,1) 23%, rgba(255,255,255,1) 68%);
+ }
+
+ .contest-box:hover{
+    border: 3px dotted #EE2436;
+    color: #EE2436;
+    background: #fff;
+ }
+ 

@@ -24,7 +24,7 @@
 
 <body>
     @if (Auth::user())
-        <nav class="navbar navbar-expand-lg  mb-4">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
 
                 <a href="/"
