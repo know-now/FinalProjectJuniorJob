@@ -50,12 +50,7 @@
                             <div class="row">
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-3 mb-2 bg-body rounded">
 
-                                    <h6 class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla
-                                        sapiente eligendi nihil maxime, at delectus accusantium earum odio ad minus
-                                        voluptates, ea commodi veniam repudiandae eius, pariatur voluptas doloremque porro.
-                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi hic, aliquid
-                                        laboriosam exercitationem iusto cupiditate dolor, nam officiis et velit est incidunt
-                                        in? Labore provident eveniet ducimus dolor ab excepturi.</h6>
+                                    <h6 class="text-muted">{{ $company->description }}</h6>
                                     <a href="{{url('/company/edit', ['description'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
 
