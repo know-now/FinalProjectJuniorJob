@@ -23,9 +23,7 @@
                                             <img src="{{ asset('assets/find_your_junior_black_sm.png') }}"
                                                 alt=""></div>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/adem">Work permit in ADEM</a>
-                                </li>
+
                                 @if ($user->type === 'company')
                                     <li class="nav-item">
                                         <a class="nav-link" href="/company">My account</a>
@@ -36,18 +34,7 @@
                                     </li>
                                 @endif
 
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#search">Search a Junior</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/soft_skills">Soft Skills</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/dashboard">Temp Dashboard</a>
-                                </li>
-                              
-
-                            </ul>
+                                </ul>
                         </div>
                 </nav>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">

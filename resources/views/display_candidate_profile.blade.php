@@ -32,7 +32,7 @@
                                 </blockquote>
 
                             </div>
-                        
+
                             <ul class="list-unstyled d-flex justify-content-start mt-4">
                                 <li></li>
                             </ul>
@@ -63,7 +63,7 @@
                                         <a href="{{url('/profile/edit', ['linkedin'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                     </div>
                                 </div>
-                                <h4 class="pt-5 text-center ">SKILSS & PREFERENCES</h4>
+                                <h4 class="pt-5 text-center ">SKILLS & PREFERENCES</h4>
                                 <hr class="badge-primary">
                                 <div class="row m-0">
                                     <div
@@ -104,15 +104,10 @@
                                         <button type="button" class="btn btn-transparent btn-lg btn-CV text-light mb-3 px-5">
                                         <div>
                                             <a target="_blank" href="{{ URL::to('/') }}/uploads/{{$cv}}">CV</a>
-                                            
+
                                         </div>
                                     </button>
                                     <a href="{{url('/profile/edit', ['cv'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
-
-
-
-
-
 
                                     </div>
 
