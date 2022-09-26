@@ -55,8 +55,8 @@ Route::post('/company/create', [CreateCompanyProfileController::class, 'store'])
 Route::get('/company/edit', [CreateCompanyProfileController::class, 'edit'])->middleware(['auth','user.company',])->name('company-edit');
 //Route::post('/company/edit', [CreateCompanyProfileController::class, 'update'])->middleware(['auth', 'user.company])->name('/company/edit');
 
-Route::get('/search', [SkillController::class, 'create'])->middleware(['user.company','create.profile'])->name('search');
-Route::post('/search', [SkillController::class, 'store'])->middleware(['user.company','create.profile'])->name('search');
+Route::get('/search_junior', [SkillController::class, 'create'])->middleware(['auth','user.company','create.profile'])->name('search');
+Route::post('/search_junior', [SkillController::class, 'store'])->middleware(['auth','user.company','create.profile'])->name('search');
 
 //global user routes
 Route::get('/adem', function () {
