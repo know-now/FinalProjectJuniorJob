@@ -52,7 +52,7 @@ class CreateCandidateProfileController extends Controller
         //get input array
         $skills = $request->skills;
         $languages = $request->languages;
-        dd($request);
+
         $request->validate([
             'first_name' => 'required|min:3|max:30',
             'last_name' => 'required|min:3|max:30',
@@ -189,7 +189,7 @@ class CreateCandidateProfileController extends Controller
         //retrieve candidates with skills and languages
         $candidate = Auth::user()->candidates->first();
         $candidate_skills = $candidate->skills;
-        $candidate_languages = $candidate->skills;
+        $candidate_languages = $candidate->languages;
         $data = $request->except('_token');
         $first_name = array_key_exists('first_name', $data);
         $last_name = array_key_exists('last_name', $data);
@@ -201,11 +201,6 @@ class CreateCandidateProfileController extends Controller
         $role = array_key_exists('role', $data);
         $skills = array_key_exists('skills', $data);
         $languages = array_key_exists('languages', $data);
-
-        // $request->validate([
-        //     'languages' => 'required',
-        //     'skills' => 'required',
-        // ]);
 
         //different edit inputs will be displayed depending on the url clicked
         if ($first_name && $last_name) {
@@ -296,33 +291,23 @@ class CreateCandidateProfileController extends Controller
                 'skills' => 'required',
             ]);
 
-            // foreach($request->skills as $insert_skill){
-            //     var_dump($insert_skill);
-            // }
-            foreach ($candidate_skills as $skills) {
-                //$new_skills = $skills->pivot->skill_id->update(['skill_id' => $request->skills]);
-                foreach ($request->skills as $new_skill) {
-                    $new_skills = $skills->pivot->update(['skill_id' => $new_skill]);
-                    dd($new_skill);
-                }
-            }
+            $curr_skills = $candidate->skills()->detach($candidate_skills);
+            $new_skills = $candidate->skills()->attach($request->skills);
 
-            if (!$new_skills)
-                return redirect()->back();
-            else
-                return redirect()->route('profile');
+            return redirect()->route('profile');
         } else if ($languages) {
+
             $request->validate([
                 'languages' => 'required',
             ]);
-            foreach ($candidate_languages as $candidate) {
-                $new_skills = $candidate->language->update(['language_id' => $request->skills]);
-            }
-            $new_languages = $candidate->update(['language_id' => $request->languages]);
-            if (!$new_languages)
-                return redirect()->back();
-            else
-                return redirect()->route('profile');
+
+
+            $curr_languages = $candidate->languages()->detach($candidate_languages);
+            
+            $new_languages = $candidate->languages()->attach($request->languages);
+            
+
+            return redirect()->route('profile');
         }
     }
 
