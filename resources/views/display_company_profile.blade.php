@@ -11,7 +11,7 @@
                     <div class="row">
 
                         <h2> Welcome <span class="text-danger">{{ $company->company_name }}</span></h2>
-                        <div class="col-sm-6 text-center" style="background-color:rgb(201, 199, 199);">
+                        <div class="col-sm-6 text-center" style="background-color: #f8f9fa;;">
 
                             <i class="bi bi-building" style="font-size: 150px; color: #00a2df;"></i>
 

@@ -205,7 +205,7 @@
             </p>
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-2">
-                    <div class="card bd-light">
+                    <div class="card bd-light h-100">
                         <div class="card-body text-center">
                             <img src="/assets/Denis.png" class="rounded-circle mb-3" alt="" height="120px"
                                 width="120px" />
@@ -227,7 +227,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
-                    <div class="card bd-light">
+                    <div class="card bd-light h-100">
                         <div class="card-body text-center">
                             <img src="/assets/Margo.png" class="rounded-circle mb-3" alt="" height="120px"
                                 width="120px" />
@@ -249,7 +249,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
-                    <div class="card bd-light">
+                    <div class="card bd-light h-100">
                         <div class="card-body text-center">
                             <img src="/assets/Bricia2.png" class="rounded-circle mb-3" alt="" height="120px"
                                 width="120px" />
@@ -269,7 +269,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
-                    <div class="card bd-light">
+                    <div class="card bd-light h-100">
                         <div class="card-body text-center">
                             <img src="/assets/Kusuma.png" class="rounded-circle mb-3" alt="" height="120px"
                                 width="120px" />
@@ -288,7 +288,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-2">
-                    <div class="card bd-light">
+                    <div class="card bd-light h-100">
                         <div class="card-body text-center">
                             <img src="/assets/Yvetta.png" class="rounded-circle mb-3" alt="" height="120px"
                                 width="120px" />
