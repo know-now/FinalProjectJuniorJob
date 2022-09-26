@@ -40,12 +40,12 @@ class CreateCompanyProfileController extends Controller
     {
 
         $request->validate([
-            'contact' => 'required',
+            'contact' => 'required|numeric',
             'description' => 'required|min:3|max:250',
             'company_name' => 'required|min:3',
             'date_created' => 'required',
             'number_of_employees' => 'required|numeric',
-            'industry_id',
+            'industry_id' => 'required',
 
         ]);
 
@@ -101,7 +101,15 @@ class CreateCompanyProfileController extends Controller
      */
     public function edit()
     {
-        return view('edit_company');
+        $company = Auth::user()->companies;
+        $name = $company->first()->company_name;
+        $contact = $company->first()->contact;
+        $description = $company->first()->description;
+        $date = $company->first()->date_created;
+        $employees = $company->first()->number_of_employees;
+        $industry = $company->first()->industry_id;
+        $industry = Industry::find($industry)->industry;
+        return view('edit_company', ['name' => $name, 'contact' => $contact, 'description' => $description, 'date' => $date, 'employees' => $employees, 'industry' => $industry]);
     }
 
     /**
@@ -111,9 +119,88 @@ class CreateCompanyProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //get companies table
+        $company = Auth::user()->companies->first();
+
+        $data = $request->except('_token');
+
+        $name = array_key_exists('company_name', $data);
+        $contact = array_key_exists('contact', $data);
+        $description = array_key_exists('description', $data);
+        $date = array_key_exists('date', $data);
+        $employees = array_key_exists('employees', $data);
+        $industry = array_key_exists('industry', $data);
+
+        //Depending on the url clicked a different edit form will be displayed aka the field that the user wants to edit
+        if ($name) {
+
+            $request->validate([
+                'company_name' => 'required|min:3',
+            ]);
+            $new_name = $company->update(['company_name' => $request->company_name]);
+            if (!$new_name)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        } else if ($contact) {
+
+            $request->validate([
+                'contact' => 'required|numeric',
+            ]);
+            $new_contact = $company->update(['contact' => $request->contact]);
+            if (!$new_contact)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        } else if ($description) {
+
+            $request->validate([
+                'description' => 'required|min:3|max:250',
+            ]);
+            $new_description = $company->update(['description' => $request->description]);
+            if (!$new_description)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        } else if ($date) {
+
+            $request->validate([
+                'date' => 'required',
+            ]);
+            $new_date = $company->update(['date_created' => $request->date]);
+            if (!$new_date)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        } else if ($employees) {
+
+            $request->validate([
+                'employees' => 'required|numeric',
+            ]);
+            $new_employees = $company->update(['number_of_employees' => $request->employees]);
+            if (!$new_employees)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        } else if ($industry) {
+
+            $request->validate([
+                'industry' => 'required',
+            ]);
+            $new_industry = $company->update(['industry_id' => $request->industry]);
+            if (!$new_industry)
+                return redirect()->back();
+            else
+                return redirect()->route('company');
+
+        }
     }
 
     /**

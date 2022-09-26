@@ -19,27 +19,27 @@
                                 <h5 class="mt-4" style="color: #00a2df;">Company Name</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->company_name }}</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['name'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Date created</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->date_created }}</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['date'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Industry</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company_industry->industry }}</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['industry'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Number of employees</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->number_of_employees }}</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['employees'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                                 <h5 class="mt-4" style="color: #00a2df;">Contacts</h5>
                                 <div class="col-sm-12 d-flex justify-content-between shadow-sm p-2 rounded">
                                     <h6 class="text-muted">{{ $company->contact }}</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['contact'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
                             </div>
 
@@ -56,7 +56,7 @@
                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi hic, aliquid
                                         laboriosam exercitationem iusto cupiditate dolor, nam officiis et velit est incidunt
                                         in? Labore provident eveniet ducimus dolor ab excepturi.</h6>
-                                    <a href="{{url('/company/edit')}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
+                                    <a href="{{url('/company/edit', ['description'])}}"><i class="bi bi-pencil-square" style="color: #00a2df;"></i></a>
                                 </div>
 
                             </div>
@@ -65,7 +65,7 @@
                             <div class="row">
                                 <div class="col-sm-12 text-center">
                                     <p class="hide" style="font-size:16px">FIND A JUNIOR</p>
-                                    <a href="/search_junior"><i class="bi bi-search"
+                                    <a href="{{route('search')}}"><i class="bi bi-search"
                                             style="color: red; font-size: 100px;"></i></a>
                                 </div>
                             </div>
