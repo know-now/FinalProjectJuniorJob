@@ -18,12 +18,12 @@
         <div class="container contest-howToWrite mt-5 text-start">
             <h3>HOW to write </h3>
             <h1><span style="color:#00a2df">CV</span></h1>
-            <h2>Cover Letter</h2>
+            <h2> & Cover Letter</h2>
         </div>
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-4">
-                    <img src="/assets/coverLetter.png" style="max-width:100%;
+                    <img src="/assets/cv.jpg" style="max-width:100%;
                 max-height:100%;">
 
                 </div>

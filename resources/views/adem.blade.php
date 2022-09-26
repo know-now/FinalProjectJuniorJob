@@ -3,7 +3,7 @@
 
 @section('content')
 
-    <section class="ademp-5">
+    <section class="adem p-5">
         <div class="conatiner">
             <h2 class="text-center text-dark mb-5 ">Need a <span style="color:#EE2436;">JOB PERMIT<span>?</h2>
 
