@@ -54,7 +54,7 @@
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="{{ route('soft_skills') }}" role="button"
-                                    data-bs-toggle="dropdown">Soft Skills</a>
+                                    data-bs-toggle="dropdown">Useful Info</a>
                                 <ul class="dropdown-menu dropdown-menu">
                                     <li><a class="dropdown-item" href="{{ route('soft_skills') }}#challenge">Find a
                                             challange</a></li>
