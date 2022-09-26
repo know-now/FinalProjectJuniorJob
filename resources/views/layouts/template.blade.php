@@ -76,13 +76,14 @@
             </div>
         </nav>
     @else
-        <nav>
-            <div class="navbar-container px-3">
-                <div class="navbar-image">
-                    <a class="navbar-brand" href="">
-                        <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
-                    </a>
-                </div>
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="navbar-image">
+                <a class="navbar-brand" href="">
+                    <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
+                </a>
+            </div>
+            <div class="navbar-container ms-auto">
+                
                 <div class="navbar-ul">
                     <ul>
                         <li>
