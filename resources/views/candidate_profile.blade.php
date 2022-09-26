@@ -132,8 +132,8 @@
 
 
                 <div class="row my-4">
-                    <div class="col-md-6 d-flex">
-                        <button class="w-50 btn btn-md prev-btn" type="button">Previous</button>
+                    <div class="col-md-6 d-flex justify-content-start">
+                        <button class="w-50 btn btn-primary btn-md profile-btn" type="button">Previous</button>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
                         <input type="submit" class="w-50 btn btn-primary btn-md profile-btn" value="Create Profile">

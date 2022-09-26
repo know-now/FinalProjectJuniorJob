@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="/css/footer_style.css">
     <link rel="stylesheet" href="/css/navbar_style.css">
     <link rel="stylesheet" href="/css/content_style.css">
-    <link rel="stylesheet" href="/css/search_style.css">
-    <link rel="stylesheet" href="css/profile.css">
     <title>@yield('title')</title>
     @yield('css')
 
@@ -24,7 +22,7 @@
 
 <body>
     @if (Auth::user())
-        <nav class="navbar navbar-expand-lg  mb-4">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
 
                 <a href="/"
@@ -54,8 +52,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('profile') }}">My account</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('soft_skills') }}">Soft Skills</a>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link" href="{{ route('soft_skills') }}" role="button"
+                                    data-bs-toggle="dropdown">Soft Skills</a>
+                                <ul class="dropdown-menu dropdown-menu">
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#challenge">Find a
+                                            challange</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#cv">How to write
+                                            CV</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('soft_skills') }}#question">Questions &
+                                            Suggestions</a></li>
+                                </ul>
                             </li>
                         @endif
                         <li class="nav-item">
@@ -98,24 +105,24 @@
 
 
     <footer>
-        <div class="container text-center">
-            <div class="row justify-content-between align-items-center">
+        <div class="container text-start">
+            <div class="row align-items-center ">
                 <div class="col-sm-4 col-md-4">
                     <div class="footer-logo">
                         <img src="{{ URL::asset('/assets/find_your_junior_black.png') }}" alt="">
                     </div>
                 </div>
                 <div class="col-sm-4 col-md-4">
-                    <div class="footer-heading">
+                    <div class="footer-heading text-start p-0 m-0">
                         <h3>About Us</h3>
                     </div>
                     <p>A Place to Find The Talent of Tommorrow </p>
                     <p>Platform for Juniors to start carrer</p>
-                    <p></p>
+                    <p>Help you to find professional match</p>
                     <p></p>
                 </div>
                 <div class="col-sm-4 col-md-4">
-                    <div class="footer-heading">
+                    <div class="footer-heading text-start p-0 m-0">
                         <h3>Contact</h3>
                     </div>
                     <p><a href="mailto:find.your.junior@gmail.com">find.your.junior@gmail.com</a></p>

@@ -3,7 +3,7 @@
 @section('content')
     <!-- landing page content -->
     <!-- box for junior -->
-    <section class="">
+    <section class="pb-5">
         <div class="container-fluid">
             <div class="row justify-content-center align-items-center">
                 <div class="candidate col-md-6 text-center text-light p-5">
@@ -37,7 +37,7 @@
         </div>
     </section>
     <!-- about us  -->
-    <section class="bg-light text-dark p-5 text-center">
+    <section class="bg-light text-dark text-center">
         <div class="container">
             <div class="row align-items-center justyfy-content-between g-6">
                 <div class="col-md-6 img-buildings">
@@ -46,16 +46,16 @@
                 <div class="col-md-6">
                     <h1>Who Are <span class="text-danger">We</span></h1>
                     <p class="lead">
-                        <span style="text-shadow: 1px 1px #EE2436"><b>Find Your Junior</b></span> is a platform build for
+                        <span style="color: #EE2436"><b>Find Your Junior</b></span> is a platform build for
                         the Juniors Web Developers and Companies who are in
                         searching for Juniors.
                     </p>
                     <p>
-                        For <span style="text-shadow: 1px 1px #00a2df">Juniors </span> to find a job opportunity where they
+                        For <span style="color: #00a2df"><b>Juniors</b></span> to find a job opportunity where they
                         can invest their skills and start their carrer.
                     </p>
                     <p>
-                        For <span style="text-shadow: 1px 1px #00a2df">Companies </span> searching for the energetic
+                        For <span style="color: #00a2df"><b>Companies</b></span> searching for the energetic
                         Juniors.
                     </p>
                 </div>
