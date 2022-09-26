@@ -1,5 +1,8 @@
 @extends('layouts.template')
 
+@section('css')
+    
+@endsection
 @section('content')
     <!-- landing page content -->
     <!-- box for junior -->
@@ -17,7 +20,8 @@
                     </button>
                     <p>From Resume building to Interview</p>
 
-                    <a href="#how-it-works-candidate" id="link-how-candidate" class="link-light text-underline-hover">How it works</a>
+                    <a href="#how-it-works-candidate" id="link-how-candidate" class="link-light text-underline-hover">How it
+                        works</a>
                 </div>
 
                 <!-- box for company -->
@@ -31,7 +35,8 @@
                     </button>
                     <p>Discover new Talents</p>
 
-                    <a href="#how-it-works-company" id="link-how-company" class="link-light text-underline-hover">How it works</a>
+                    <a href="#how-it-works-company" id="link-how-company" class="link-light text-underline-hover">How it
+                        works</a>
                 </div>
             </div>
         </div>

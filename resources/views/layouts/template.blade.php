@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     @if (Auth::user())
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
@@ -77,7 +77,7 @@
         </nav>
     @else
         <nav>
-            <div class="navbar-container">
+            <div class="navbar-container px-3">
                 <div class="navbar-image">
                     <a class="navbar-brand" href="">
                         <img src="{{ URL::asset('/assets/find_your_junior_black_sm.png') }}" alt="Bootstrap">
@@ -104,15 +104,15 @@
 
 
 
-    <footer>
+    <footer class="mt-auto">
         <div class="container text-start">
             <div class="row align-items-center ">
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-6 col-md-4 justify-content-center">
                     <div class="footer-logo">
                         <img src="{{ URL::asset('/assets/find_your_junior_black.png') }}" alt="">
                     </div>
-                </div>
-                <div class="col-sm-4 col-md-4">
+                </div> 
+                <div class="col-sm-6 col-md-4 justify-content-center">
                     <div class="footer-heading text-start p-0 m-0">
                         <h3>About Us</h3>
                     </div>
@@ -121,7 +121,7 @@
                     <p>Help you to find professional match</p>
                     <p></p>
                 </div>
-                <div class="col-sm-4 col-md-4">
+                <div class="col-sm-6 col-md-4 justify-content-center">
                     <div class="footer-heading text-start p-0 m-0">
                         <h3>Contact</h3>
                     </div>

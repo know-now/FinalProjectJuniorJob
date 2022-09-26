@@ -50,7 +50,7 @@
                     </select>
                 </div>
                 <div class="col-sm-12 d-flex justify-content-end">
-                    <button class="w-25 btn btn-md next-btn" type="button">Next</button>
+                    <button class="w-25 btn btn-primary next-btn" type="button">Next</button>
                 </div>
 
             </div>
