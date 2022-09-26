@@ -17,7 +17,7 @@
     <section id="cv">
         <div class="container contest-howToWrite mt-5 text-start">
             <h3>HOW to write </h3>
-            <h1><span style="color:#00a2df">CV & cover letter</span></h1>
+            <h1><span style="color:#00a2df">CV</span></h1>
             <h2>Cover Letter</h2>
         </div>
         <div class="container mt-5">
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="container contest-testYourself mt-5 text-end">
-            <h3>Prepear your self for</h3>
+            <h3>Prepare yourself for</h3>
             <h1><span style="color:#00a2df"> soft skills </span></h1>
             <h2>interview questions</h2>
         </div>
@@ -43,7 +43,7 @@
     <!-- question accordion -->
     <section id="question" class="p-5">
         <div class="container">
-            <h2 class="text-center mb-4"><span style="color:#00a2df">Questions </span> & Sagestions</h2>
+            <h2 class="text-center mb-4"><span style="color:#00a2df">Questions </span> & Suggestions</h2>
             <div class="accordion accordion-flush" id="question">
                 <!-- question 1-->
                 <div class="accordion-item">
